@@ -1,0 +1,124 @@
+﻿@page "/film-add"
+@using global::Cinema.Client.DTO.Movie
+@using global::Cinema.Client.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+
+<PageTitle>Фильм</PageTitle>
+
+<h1>Добавление нового фильма</h1>
+
+<button @onclick="RedirectBack" class="btn btn-primary mb-3 mt-3">Назад</button>
+
+<form class="row g-3" @onsubmit="CreateNewMovie">
+    <div class="mb-3">
+        <label for="titleFormControlInput" class="form-label">Название:</label>
+        <input required="" type="text" class="form-control" id="titleFormControlInput" maxlength="150" 
+               @bind="_newMovie.Title"/>
+    </div>
+
+    <div class="mb-3">
+        <label for="descriptionFormControlInput" class="form-label">Описание:</label>
+        <textarea required="" class="form-control" id="descriptionFormControlInput" rows="3"
+                      maxlength="1000" @bind="_newMovie.Description"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="durationFormControlInput" class="form-label">Продолжительность (минуты):</label>
+        <input required="" type="number" class="form-control" id="durationFormControlInput"
+               min="0" max="300" @bind="_newMovie.Duration"/>
+    </div>
+
+    <div class="mb-3">
+        <label for="ratingFormControlInput" class="form-label">Рейтинг:</label>
+        <input required="" type="number" class="form-control" id="ratingFormControlInput"
+               min="0" max="10" step="0.1"
+               @bind="_newMovie.Rating"/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="imgFormControlInput" class="form-label">Обложка:</label>
+        <InputFile id="imgFormControlInput" class="form-control" OnChange="LoadFiles" />
+    </div>
+
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Добавить</button>
+    </div>
+</form>
+
+@code {
+    private IBrowserFile _imageFile;
+    private MovieDTO _newMovie = new MovieDTO();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+    }
+
+    private async Task CreateNewMovie()
+    {
+        var formData = new MultipartFormDataContent();
+
+        if (_imageFile != null)
+        {
+            var fileContent = new StreamContent(_imageFile.OpenReadStream(1024 * 1024));
+            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(_imageFile.ContentType);
+            formData.Add(fileContent, "file", _imageFile.Name);
+        }
+        
+        var uploadResponse = await Http.PostAsync("api/Movie/upload", formData);
+
+        string imageUrl = null;
+
+        if (uploadResponse.IsSuccessStatusCode)
+        {
+            imageUrl = await uploadResponse.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            Console.Error.WriteLine("Ошибка загрузки изображения");
+            return;
+        }
+        
+        var dtoToTransfer = new CreateMovieDto()
+        {
+            Title = _newMovie.Title,
+            Description = _newMovie.Description,
+            Duration = TimeSpan.FromMinutes(double.Parse(_newMovie.Duration)),
+            Rating = _newMovie.Rating,
+            ImagePath = imageUrl
+        };
+        var response = await Http.PostAsJsonAsync("api/Movie", dtoToTransfer);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/films");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Console.Error.WriteLine($"Ошибка: {error}");
+        }
+    }
+    
+    private void LoadFiles(InputFileChangeEventArgs e)
+    {
+        if (e.GetMultipleFiles().Any())
+        {
+            _imageFile = e.File;
+        }
+    }
+    
+    /// <summary>
+    /// Редирект назад
+    /// </summary>
+    private async Task RedirectBack()
+    {
+        NavigationManager.NavigateTo("/films");
+    }
+}

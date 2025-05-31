@@ -1,0 +1,72 @@
+﻿@page "/cinema-add"
+@using global::Cinema.Client.DTO.Cinema
+@using global::Cinema.Client.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+
+<PageTitle>Кинотеатр</PageTitle>
+
+<h1>Добавление нового кинотеатра</h1>
+
+<button @onclick="RedirectBack" class="btn btn-primary mb-3 mt-3">Назад</button>
+
+<form class="row g-3" @onsubmit="CreateNewCinema">
+    <div class="mb-3">
+        <label for="nameFormControlInput" class="form-label">Название:</label>
+        <input required="" type="text" class="form-control" id="nameFormControlInput" maxlength="100" 
+               @bind="_newCinema.Name"/>
+    </div>
+
+    <div class="mb-3">
+        <label for="addressFormControlInput" class="form-label">Адрес:</label>
+        <textarea required="" class="form-control" id="addressFormControlInput" rows="3"
+                      maxlength="200" @bind="_newCinema.Address"></textarea>
+    </div>
+
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Добавить</button>
+    </div>
+</form>
+
+@code {
+    private CinemaDTO _newCinema = new CinemaDTO();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+    }
+
+    private async Task CreateNewCinema()
+    {
+        var dtoToTransfer = new CreateCinemaDTO()
+        {
+            Name = _newCinema.Name,
+            Address = _newCinema.Address
+        };
+        
+        var response = await Http.PostAsJsonAsync("api/Cinema", dtoToTransfer);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/cinemas");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Console.Error.WriteLine($"Ошибка: {error}");
+        }
+    }
+    
+    /// <summary>
+    /// Редирект назад
+    /// </summary>
+    private async Task RedirectBack()
+    {
+        NavigationManager.NavigateTo("/cinemas");
+    }
+}

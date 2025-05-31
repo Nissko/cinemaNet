@@ -1,0 +1,23 @@
+﻿services:
+  cinema.client:
+    image: cinema.client
+    build:
+      context: .
+      dockerfile: Cinema.Client/Dockerfile
+    container_name: clientCinema
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    depends_on:
+      - cinema.api
+
+  cinema.api:
+    image: cinema.api
+    build:
+      context: .
+      dockerfile: Cinema.API/Dockerfile
+    container_name: apiCinema
+    ports:
+      - "5000:80"
+    restart: unless-stopped
+

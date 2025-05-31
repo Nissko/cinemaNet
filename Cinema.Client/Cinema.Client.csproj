@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.16" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.16" />
+    <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.16" />
+    <PackageReference Include="Microsoft.NET.Sdk.WebAssembly.Pack" Version="8.0.16" />
+    <PackageReference Include="Quick.AspNetCore.Components.Web.Extensions" Version="6.0.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.10.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+    <_ContentIncludedByDefault Remove="Pages\Cinema\CinemaAdd.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Cinema\CinemaEdit.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Cinema\Cinemas.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Movie\FilmAdd.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Movie\FilmEdit.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Movie\Films.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Screening\ScreeningAdd.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Screening\ScreeningEdit.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Screening\Screenings.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\AdminTabs\Ticket\" />
+    <Folder Include="Pages\AdminTabs\User\" />
+    <Folder Include="wwwroot\images_movies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Pages\AdminTabs\Auditorium\AuditoriumAdd.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Auditorium\AuditoriumEdit.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Auditorium\Auditoriums.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Cinema\CinemaAdd.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Cinema\CinemaEdit.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Cinema\Cinemas.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Movie\FilmAdd.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Movie\FilmEdit.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Movie\Films.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Screening\ScreeningAdd.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Screening\ScreeningEdit.razor" />
+    <AdditionalFiles Include="Pages\AdminTabs\Screening\Screenings.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
+  </ItemGroup>
+
+</Project>

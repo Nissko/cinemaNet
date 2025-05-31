@@ -1,0 +1,15 @@
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\bin\Debug\net8.0\Cinema.Application.deps.json
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\bin\Debug\net8.0\Cinema.Application.dll
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\bin\Debug\net8.0\Cinema.Application.pdb
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\bin\Debug\net8.0\Cinema.Domain.dll
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\bin\Debug\net8.0\Cinema.Domain.pdb
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.csproj.AssemblyReference.cache
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.AssemblyInfoInputs.cache
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.AssemblyInfo.cs
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.csproj.CoreCompileInputs.cache
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.A.B61B4880.Up2Date
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.dll
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\refint\Cinema.Application.dll
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.pdb
+C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\ref\Cinema.Application.dll

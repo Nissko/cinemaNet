@@ -1,0 +1,148 @@
+﻿@page "/screening-edit/{id:guid}"
+@using global::Cinema.Client.DTO.Auditorium
+@using global::Cinema.Client.DTO.Movie
+@using global::Cinema.Client.DTO.Screening
+@using global::Cinema.Client.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+
+<PageTitle>Премьера</PageTitle>
+
+@if (_screening != null)
+{
+    <h3 class="fw-bold">Премьера - редактирование</h3>
+
+    <button @onclick="RedirectBack" class="btn btn-primary mb-3 mt-3">Назад</button>
+
+    <form class="row g-3" @onsubmit="UpdateConfirmChanges">
+        <div class="mb-3">
+            <label class="form-label">Дата показа:</label>
+            <div class="input-group">
+                <InputDate @bind-Value="_dateInput" class="form-control" />
+                <input type="time" @bind="_timeInput" class="form-control" />
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label" for="ticketPriceInput">Цена билета:</label>
+            <div>
+                <input id="ticketPriceInput" class="form-control" type="number" @bind="_screening.Price" min="100" max="1000"/>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="zalFormControlInput" class="form-label">Зал:</label>
+            @if (_auditoriumDto != null)
+            {
+                <select required class="form-control" id="zalFormControlInput" rows="3" @bind="_screening.Auditorium.Id">
+                    <option selected="" disabled="">Выберите фильм</option>
+                    @foreach (var aud in _auditoriumDto)
+                    {
+                        <option value="@aud.Id">Зал "@aud.Number"</option>
+                    }
+                </select>
+            }
+            else
+            {
+                <div role="status">Загрузка фильмов...</div>
+            }
+        </div>
+    
+        <div class="mb-3">
+            <label for="filmFormControlInput" class="form-label">Фильм:</label>
+            @if (_movieDto != null)
+            {
+                <select required class="form-control" id="filmFormControlInput" rows="3" @bind="_screening.Movie.Id">
+                    <option selected="" disabled="">Выберите фильм</option>
+                    @foreach (var movie in _movieDto)
+                    {
+                        <option value="@movie.Id">Зал "@movie.Title"</option>
+                    }
+                </select>
+            }
+            else
+            {
+                <div role="status">Загрузка фильмов...</div>
+            }
+        </div>
+    
+        @if (_errorMessage.Length > 0)
+        {
+            <div class="alert alert-danger">
+                @_errorMessage
+            </div>
+        }
+    
+
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Изменить</button>
+        </div>
+    </form>
+}
+else
+{
+    <div role="status">Загрузка...</div>
+}
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+    private ScreeningDTO? _screening;
+    private AuditoriumDTO[]? _auditoriumDto;
+    private MovieDTO[]? _movieDto;
+
+    private string _errorMessage = string.Empty;
+    private DateOnly _dateInput;
+    private TimeOnly _timeInput;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            _screening = await Http.GetFromJsonAsync<ScreeningDTO>($"api/Screening/{Id}"); 
+            _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("api/Auditorium");
+            _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("api/Movie");
+        
+            _dateInput = DateOnly.FromDateTime(_screening.StartTime);
+            _timeInput = TimeOnly.FromDateTime(_screening.StartTime);
+        }
+    }
+    
+    private async Task UpdateConfirmChanges()
+    {
+        var dateTimeFromInputs = new DateTime(_dateInput, _timeInput);
+        var updateAuditoriumDto = new UpdateScreeningDTO
+        {
+            StartTime = DateTime.SpecifyKind(dateTimeFromInputs, DateTimeKind.Utc),
+            MovieId = _screening.Movie.Id,
+            AuditoriumId = _screening.Auditorium.Id,
+            Price = _screening.Price
+        };
+
+        var response = await Http.PutAsJsonAsync($"api/Screening/{Id}", updateAuditoriumDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/screenings");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            _errorMessage = error;
+            Console.Error.WriteLine($"Ошибка: {error}");
+        }
+    }
+    
+    /// <summary>
+    /// Редирект назад
+    /// </summary>
+    private async Task RedirectBack(MouseEventArgs mouseEventArgs)
+    {
+        NavigationManager.NavigateTo("/screenings");
+    }
+}

@@ -1,0 +1,88 @@
+﻿@page "/cinema-edit/{id:guid}"
+@using global::Cinema.Client.DTO.Cinema
+@using global::Cinema.Client.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+
+<PageTitle>Кинотеатр</PageTitle>
+
+@if (_cinema != null)
+{
+    <h3 class="fw-bold">"@_cinema.Name" - редактирование</h3>
+
+    <button @onclick="RedirectBack" class="btn btn-primary mb-3 mt-3">Назад</button>
+
+    <form class="row g-3" @onsubmit="UpdateConfirmChanges">
+        <div class="mb-3">
+            <label for="nameFormControlInput" class="form-label">Название:</label>
+            <input type="text" class="form-control" id="nameFormControlInput"
+                   maxlength="100" @bind="_cinema.Name"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="addressFormControlInput" class="form-label">Адрес:</label>
+            <textarea class="form-control" id="addressFormControlInput" rows="3"
+                      maxlength="200" @bind="_cinema.Address"></textarea>
+        </div>
+
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Изменить</button>
+        </div>
+    </form>
+}
+else
+{
+    <div role="status">Загрузка...</div>
+}
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+
+    private CinemaDTO? _cinema;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            _cinema = await Http.GetFromJsonAsync<CinemaDTO>($"api/Cinema/{Id}");
+        }
+    }
+    
+    /// <summary>
+    ///     Обновление информации о фильме
+    /// </summary>
+    private async Task UpdateConfirmChanges()
+    {
+        var updateCinemaDto = new UpdateCinemaDTO()
+        {
+            Name = _cinema.Name,
+            Address = _cinema.Address
+        };
+
+        var response = await Http.PutAsJsonAsync($"api/Cinema/{Id}", updateCinemaDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/cinemas");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Console.Error.WriteLine($"Ошибка: {error}");
+        }
+    }
+
+    /// <summary>
+    /// Редирект назад
+    /// </summary>
+    private async Task RedirectBack(MouseEventArgs mouseEventArgs)
+    {
+        NavigationManager.NavigateTo("/cinemas");
+    }
+}

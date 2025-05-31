@@ -1,0 +1,70 @@
+﻿@page "/register"
+@using System.ComponentModel.DataAnnotations
+@using Cinema.Client.Services
+@inject AuthService AuthService
+@inject NavigationManager NavManager
+
+<h3>Регистрация</h3>
+
+<EditForm Model="@model" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label class="form-label">Почта</label>
+        <InputText type="email" @bind-Value="model.Email" class="form-control" />
+        <ValidationMessage For="@(() => model.Email)" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Пароль</label>
+        <InputText type="password" @bind-Value="model.Password" class="form-control" />
+        <ValidationMessage For="@(() => model.Password)" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Подтверждение пароля</label>
+        <InputText type="password" @bind-Value="model.ConfirmPassword" class="form-control" />
+        <ValidationMessage For="@(() => model.ConfirmPassword)" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger mt-3">@ErrorMessage</div>
+}
+
+@code {
+    private RegisterModel model = new();
+    private string ErrorMessage = "";
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await AuthService.Register(model.Email, model.Password);
+            NavManager.NavigateTo("/login");
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = "Ошибка регистрации: " + ex.Message;
+        }
+    }
+
+    public class RegisterModel
+    {
+        [Required(ErrorMessage = "Почта обязательна")]
+        [StringLength(50, MinimumLength = 10, ErrorMessage = "Почта должен быть от 10 до 50 символов")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Пароль обязателен")]
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "Пароль должен содержать минимум 6 символов")]
+        public string Password { get; set; }
+
+        [Required(ErrorMessage = "Подтвердите пароль")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+        public string ConfirmPassword { get; set; }
+    }
+}

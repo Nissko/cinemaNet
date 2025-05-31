@@ -1,0 +1,128 @@
+﻿@page "/auditorium-edit/{id:guid}"
+@using global::Cinema.Client.DTO.Auditorium
+@using global::Cinema.Client.DTO.Cinema
+@using global::Cinema.Client.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+
+<PageTitle>Зал</PageTitle>
+
+@if (_auditorium != null)
+{
+    <h3 class="fw-bold">Зал "@_auditorium.Number" - редактирование</h3>
+
+    <button @onclick="RedirectBack" class="btn btn-primary mb-3 mt-3">Назад</button>
+
+    <form class="row g-3" @onsubmit="UpdateConfirmChanges">
+        <div class="mb-3">
+            <label for="NumberFormControlInput" class="form-label">Номер зала:</label>
+            <input required="" type="number" class="form-control" id="NumberFormControlInput" min="1" maxlength="100" 
+                   @bind="_auditorium.Number"/>
+        </div>
+    
+        <div class="mb-3">
+            <label for="RowsCountFormControlInput" class="form-label">Кол-во рядов:</label>
+            <input required="" type="number" class="form-control" id="RowsCountFormControlInput" min="1" maxlength="100" 
+                   @bind="_auditorium.RowsCount"/>
+        </div>
+    
+        <div class="mb-3">
+            <label for="SeatsPerRowFormControlInput" class="form-label">Мест в ряду:</label>
+            <input required="" type="number" class="form-control" id="SeatsPerRowFormControlInput" min="1" maxlength="100" 
+                   @bind="_auditorium.SeatsPerRow"/>
+        </div>
+    
+        <div class="mb-3">
+            <label for="cinemaFormControlInput" class="form-label">Кинотеатр:</label>
+            <select @bind="_auditorium.CinemaId" class="form-control" id="cinemaFormControlInput">
+                @if (_cinemas != null)
+                {
+                    @foreach (var cinema in _cinemas)
+                    {
+                        @if (cinema.Id == _auditorium.CinemaId)
+                        {
+                            <option selected="" value="@cinema.Id">@cinema.Name</option>
+                        }
+                        else{
+                            <option value="@cinema.Id">@cinema.Name</option>
+                        }
+                    }
+                }
+                else
+                {
+                    <option>Добавьте кинотеатры</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Изменить</button>
+        </div>
+    </form>
+}
+else
+{
+    <div role="status">Загрузка...</div>
+}
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+
+    private CinemaDTO[]? _cinemas;
+    private AuditoriumDTO? _auditorium;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            _auditorium = await Http.GetFromJsonAsync<AuditoriumDTO>($"api/Auditorium/{Id}"); 
+            await LoadCinemas();
+        }
+    }
+
+    private async Task LoadCinemas()
+    {
+        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("api/Cinema");
+        StateHasChanged();
+    }
+    
+    /// <summary>
+    ///     Обновление информации о зале
+    /// </summary>
+    private async Task UpdateConfirmChanges()
+    {
+        var updateAuditoriumDto = new UpdateAuditoriumDTO()
+        {
+            Number = _auditorium.Number,
+            RowsCount = _auditorium.RowsCount,
+            SeatsPerRow = _auditorium.SeatsPerRow,
+            CinemaId = _auditorium.CinemaId
+        };
+
+        var response = await Http.PutAsJsonAsync($"api/Auditorium/{Id}", updateAuditoriumDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/auditoriums");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            Console.Error.WriteLine($"Ошибка: {error}");
+        }
+    }
+
+    /// <summary>
+    /// Редирект назад
+    /// </summary>
+    private async Task RedirectBack(MouseEventArgs mouseEventArgs)
+    {
+        NavigationManager.NavigateTo("/auditoriums");
+    }
+}

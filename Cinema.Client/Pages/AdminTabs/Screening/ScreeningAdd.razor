@@ -1,0 +1,141 @@
+﻿@page "/screening-add"
+@using global::Cinema.Client.DTO.Auditorium
+@using global::Cinema.Client.DTO.Movie
+@using global::Cinema.Client.DTO.Screening
+@using global::Cinema.Client.Services
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+
+<PageTitle>Показ</PageTitle>
+
+<h1>Добавление нового показа</h1>
+
+<button @onclick="RedirectBack" class="btn btn-primary mb-3 mt-3">Назад</button>
+
+<form class="row g-3" @onsubmit="CreateNewCinema">
+    <div class="mb-3">
+        <label class="form-label">Дата показа:</label>
+        <div class="input-group">
+            <InputDate @bind-Value="_dateInput" class="form-control" />
+            <input type="time" @bind="_timeInput" class="form-control" />
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label" for="ticketPriceInput">Цена билета:</label>
+        <div>
+            <input id="ticketPriceInput" class="form-control" type="number" @bind="_newScreening.Price" min="100" max="1000"/>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="zalFormControlInput" class="form-label">Зал:</label>
+        @if (_auditoriumDto != null)
+        {
+            <select required class="form-control" id="zalFormControlInput" rows="3" @bind="_newScreening.Auditorium.Id">
+                <option selected="" disabled="">Выберите фильм</option>
+                @foreach (var aud in _auditoriumDto)
+                {
+                    <option value="@aud.Id">Зал "@aud.Number"</option>
+                }
+            </select>
+        }
+        else
+        {
+            <div role="status">Загрузка фильмов...</div>
+        }
+    </div>
+    
+    <div class="mb-3">
+        <label for="filmFormControlInput" class="form-label">Фильм:</label>
+        @if (_movieDto != null)
+        {
+            <select required class="form-control" id="filmFormControlInput" rows="3" @bind="_newScreening.Movie.Id">
+                <option selected="" disabled="">Выберите фильм</option>
+                @foreach (var movie in _movieDto)
+                {
+                    <option value="@movie.Id">Зал "@movie.Title"</option>
+                }
+            </select>
+        }
+        else
+        {
+            <div role="status">Загрузка фильмов...</div>
+        }
+    </div>
+    
+    @if (_errorMessage.Length > 0)
+    {
+        <div class="alert alert-danger">
+            @_errorMessage
+        </div>
+    }
+    
+
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Добавить</button>
+    </div>
+</form>
+
+@code {
+    private ScreeningDTO _newScreening = new ();
+    private AuditoriumDTO[]? _auditoriumDto;
+    private MovieDTO[]? _movieDto;
+
+    private string _errorMessage = string.Empty;
+    private DateOnly _dateInput = DateOnly.FromDateTime(DateTime.Now);
+    private TimeOnly _timeInput = TimeOnly.FromDateTime(DateTime.Now);
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            await LoadData();
+        }
+    }
+
+    private async Task LoadData()
+    {
+        _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("api/Auditorium");
+        _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("api/Movie");
+    }
+    
+    private async Task CreateNewCinema()
+    {
+        var dateTimeFromInputs = new DateTime(_dateInput, _timeInput);
+        var dtoToTransfer = new CreateScreeningDTO()
+        {
+            StartTime = DateTime.SpecifyKind(dateTimeFromInputs, DateTimeKind.Utc),
+            AuditoriumId = _newScreening.Auditorium.Id,
+            MovieId = _newScreening.Movie.Id,
+            Price = _newScreening.Price
+        };
+        
+        var response = await Http.PostAsJsonAsync("api/Screening", dtoToTransfer);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/screenings");
+        }
+        else
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            _errorMessage = error;
+            Console.Error.WriteLine($"Ошибка: {error}");
+        }
+    }
+    
+    /// <summary>
+    /// Редирект назад
+    /// </summary>
+    private async Task RedirectBack()
+    {
+        NavigationManager.NavigateTo("/screenings");
+    }
+}

@@ -1,0 +1,423 @@
+﻿@page "/"
+@page "/events"
+@using System.Globalization
+@using Cinema.Client.DTO.Screening
+@using Cinema.Client.DTO.Seat
+@using Cinema.Client.DTO.Ticket
+@using Cinema.Client.Services
+@using Cinema.Client.Services.JwtService
+@using Microsoft.AspNetCore.SignalR.Client
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@inject AuthService AuthService
+@inject JwtService JwtServices
+
+<div class="h4 fw-bold">Показы:</div>
+<div class="d-flex gap-2 flex-wrap">
+    <button class="btn btn-primary text-center"
+            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date)">
+        Сегодня
+    </button>
+    <button class="btn btn-primary text-center"
+            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(1))">
+        Завтра
+    </button>
+    <button class="btn btn-primary text-center"
+            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(2))">
+        @GetDayName(2)
+    </button>
+    <button class="btn btn-primary text-center"
+            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(3))">
+        @GetDayName(3)
+    </button>
+    <button class="btn btn-primary text-center"
+            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(4))">
+        @GetDayName(4)
+    </button>
+</div>
+
+@if (_allScreenings != null)
+{
+    if (_allScreenings.Length == 0 || !_screeningGroups.Any())
+    {
+        <div class="mt-4 text-muted">Нет показов на этот день</div>
+    }
+    else
+    {
+        <div class="mt-4">Показы на &laquo;@_allScreenings.FirstOrDefault().StartTime.Date.ToString("dd.MM.yy")&raquo;
+        </div>
+        <div class="d-flex flex-column">
+
+            @foreach (var group in _screeningGroups)
+            {
+                var firstMovie = group.FirstOrDefault();
+                var movieTitle = firstMovie?.Movie?.Title ?? group.Key;
+
+                <div class="card mb-3" style="max-width: 640px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            @if (firstMovie != null && firstMovie.Movie != null)
+                            {
+                                <img src="images_movies/@firstMovie.Movie.ImagePath" class="img-fluid rounded-start"
+                                     alt="Обложка фильма">
+                            }
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title">@movieTitle</h5>
+                                @foreach (var audToDay in group.GroupBy(t => t.Auditorium.Number))
+                                {
+                                    <p class="card-text">Зал &laquo;@audToDay.Key&raquo;</p>
+                                }
+
+                                @foreach (var screeningToDay in group)
+                                {
+                                    @if (screeningToDay.StartTime.TimeOfDay < DateTime.Now.TimeOfDay &&
+                                         screeningToDay.StartTime.Date <= DateTime.Now.Date)
+                                    {
+                                        <div class="btn btn-secondary disabled me-2">
+                                            @screeningToDay.StartTime.ToString("HH:mm")
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="btn btn-primary me-2"
+                                             @onclick="() => LoadSeats(screeningToDay.Auditorium.Id, movieTitle, screeningToDay.Id, screeningToDay.Price)">
+                                            @screeningToDay.StartTime.ToString("HH:mm")
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div
+                                class="d-flex justify-content-center align-items-center ps-sm-1 bg-primary rounded-circle me-1 mt-1"
+                                style="min-height: 50px; min-width: 50px; cursor: pointer"
+                                @onclick="() => OpenModalTrailer(movieTitle)" title="Смотреть трейлер">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" fill="white"
+                                     class="bi bi-camera-reels m-2" viewBox="0 0 16 16">
+                                    <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0M1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/>
+                                    <path
+                                        d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm6 8.73V7.27l-3.5 1.555v4.35zM1 8v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/>
+                                    <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6M7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                                </svg>
+                            </div>
+
+                            <!-- Модальное окно трейлера -->
+                            @if (currentTrailerMovie == movieTitle)
+                            {
+                                <div class="modal fade show d-block" tabindex="-1"
+                                     style="background-color: rgba(0,0,0,0.5)"
+                                     @onclose="CloseModalTrailer">
+                                    <div class="modal-dialog modal-fullscreen">
+                                        <div class="modal-content border-0">
+                                            <div class="modal-header ps-4 pe-4">
+                                                Трейлер фильма &laquo;@movieTitle&raquo;
+                                                <button type="button" class="btn-close"
+                                                        @onclick="CloseModalTrailer"></button>
+                                            </div>
+                                            <div class="modal-body d-flex justify-content-center align-items-center">
+                                                <video class="w-75" controls="controls">
+                                                    <source src="videoplayback.mp4"
+                                                            type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                                </video>
+                                            </div>
+                                            <div class="modal-footer ps-4 pe-4">
+                                                <button class="btn btn-secondary"
+                                                        @onclick="CloseModalTrailer">Закрыть
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <!-- Модальное окно сидений -->
+                            @if (currentSeatModalForAuditoriumId.HasValue)
+                            {
+                                <div class="modal fade show d-block" tabindex="-1"
+                                     style="background-color: rgba(0,0,0,0.5)"
+                                     @onclose="CloseModalSeat">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                        <div class="modal-content border-0">
+                                            <div class="modal-header ps-4 pe-4">
+                                                Выберите место на фильм &laquo;@currentSeatModalMovieTitle&raquo;
+                                                <button type="button" class="btn-close"
+                                                        @onclick="CloseModalSeat"></button>
+                                            </div>
+                                            <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                                                @if (_seatsSort == null || !_seatsSort.Any())
+                                                {
+                                                    <p>Нет доступных мест</p>
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var row in _seatsSort
+                                                                      .Where(s => s.AuditoriumId == currentSeatModalForAuditoriumId)
+                                                                      .GroupBy(s => s.RowNumber).OrderBy(g => g.Key))
+                                                    {
+                                                        <div class="row align-items-center mb-2">
+                                                            <div class="col-auto fw-bold text-end"
+                                                                 style="width: 60px;">
+                                                                @row.Key ряд
+                                                            </div>
+                                                            <div class="col d-flex flex-wrap gap-1">
+                                                                @foreach (var seat in row.OrderBy(s => s.SeatNumber))
+                                                                {
+                                                                    <button class="btn 
+                                                                            @(IsBooked(seat) ? "btn-danger" : "btn-outline-success") 
+                                                                            @(_seatsGuids.Contains(seat.Id) ? "btn-primary" : "") 
+                                                                            btn-sm"
+                                                                            style="width: 48px;"
+                                                                            disabled="@IsBooked(seat)"
+                                                                            @onclick="() => SelectSeat(seat.Id)">
+                                                                        @seat.SeatNumber
+                                                                    </button>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                            <div class="modal-footer ps-4 pe-4">
+                                                @if (_seatsGuids.Count > 0)
+                                                {
+                                                    <div class="text-lg-start">Стоимость выбранных
+                                                        билетов: @(string.Format("{0:F2}", _seatsGuids.Count * currenSeatModalPrice)) </div>
+                                                    @if (_isAuth)
+                                                    {
+                                                        <button class="btn btn-success btn-sm"
+                                                                @onclick="BuyTickets">
+                                                            Забронировать
+                                                        </button>
+                                                    }
+                                                    else
+                                                    {
+                                                        <button class="btn btn-secondary btn-sm"
+                                                                title="Необходима авторизация/регистрация">
+                                                            Забронировать
+                                                        </button>
+                                                    }
+                                                }
+                                                <button class="btn btn-secondary btn-sm"
+                                                        @onclick="CloseModalSeat">
+                                                    Закрыть
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+else
+{
+    <div class="mt-4 text-muted">Нет показов на этот день</div>
+}
+
+@code {
+    private HubConnection _hubConnection;
+    private ScreeningDTO[]? _allScreenings;
+    private SeatDTO[]? _seatDto;
+    private TicketDTO[]? _ticketDtos;
+    private List<SeatDTO> _seatsSort = new();
+    private List<IGrouping<string, ScreeningDTO>> _screeningGroups = new();
+    private List<Guid> _seatsGuids = new();
+    private bool _isAuth;
+    private readonly List<Guid> _bookedSeats = new();
+
+    private string? currentTrailerMovie;
+    private Guid? currentSeatModalForAuditoriumId;
+    private Guid? currentSeatScreeningId;
+    private string? currentSeatModalMovieTitle;
+    private decimal? currenSeatModalPrice;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _isAuth = await AuthService.IsUserAuthenticated();
+
+        await ConnectToHub();
+        await LoadBookedSeats();
+        await LoadAllScreenings();
+    }
+
+    private async Task LoadAllScreenings()
+    {
+        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("api/Screening");
+        var today = DateTime.Today;
+        _allScreenings = _allScreenings?
+            .Where(s => s.StartTime.Date == today)
+            .ToArray();
+
+        if (_allScreenings != null)
+        {
+            var filtered = _allScreenings
+                .GroupBy(t => t.Movie.Title)
+                .OrderBy(g => g.Key)
+                .ToList();
+            _screeningGroups = filtered;
+        }
+
+        StateHasChanged();
+    }
+
+    private async void LoadScreeningsForDay(DateTime day)
+    {
+        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("api/Screening");
+        var today = day.Date;
+        _allScreenings = _allScreenings?
+            .Where(s => s.StartTime.Date == today)
+            .ToArray();
+
+        if (_allScreenings != null)
+        {
+            var filtered = _allScreenings
+                .GroupBy(t => t.Movie.Title)
+                .OrderBy(g => g.Key)
+                .ToList();
+            _screeningGroups = filtered;
+        }
+
+        StateHasChanged();
+    }
+
+    private string GetDayName(int daysFromToday)
+    {
+        var culture = new CultureInfo("ru-RU");
+        var dayName = DateTime.Now.AddDays(daysFromToday).ToString("dddd", culture);
+        return culture.TextInfo.ToTitleCase(dayName);
+    }
+
+    private async void LoadSeats(Guid auditoriumId, string movieTitle, Guid screeningId, decimal scrPrice)
+    {
+        _seatDto = await Http.GetFromJsonAsync<SeatDTO[]?>($"api/Seat/by-auditorium/{auditoriumId}");
+        _seatsSort = _seatDto?
+            .OrderBy(s => s.RowNumber)
+            .ThenBy(s => s.SeatNumber)
+            .ToList() ?? new List<SeatDTO>();
+
+        currentSeatModalForAuditoriumId = auditoriumId;
+        currentSeatModalMovieTitle = movieTitle;
+        currentSeatScreeningId = screeningId;
+        currenSeatModalPrice = scrPrice;
+        StateHasChanged();
+    }
+
+    private async Task LoadBookedSeats()
+    {
+        _ticketDtos = await Http.GetFromJsonAsync<TicketDTO[]>("/api/Ticket");
+
+        if (_ticketDtos != null)
+        {
+            _bookedSeats.AddRange(_ticketDtos.Select(t => t.SeatId));
+        }
+    }
+
+    private void OpenModalTrailer(string movieTitle)
+    {
+        currentTrailerMovie = movieTitle;
+        StateHasChanged();
+    }
+
+    private void CloseModalTrailer()
+    {
+        currentTrailerMovie = null;
+        StateHasChanged();
+    }
+
+    private void CloseModalSeat()
+    {
+        currentSeatModalForAuditoriumId = null;
+        currentSeatModalMovieTitle = null;
+        currentSeatScreeningId = null;
+        currenSeatModalPrice = null;
+        _seatsGuids.Clear();
+        StateHasChanged();
+    }
+
+    private bool IsBooked(SeatDTO seat)
+    {
+        foreach (var bookedSeat in _bookedSeats)
+        {
+            if (bookedSeat == seat.Id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void SelectSeat(Guid seatId)
+    {
+        if (_seatsGuids.Contains(seatId))
+        {
+            _seatsGuids.Remove(seatId);
+        }
+        else
+        {
+            _seatsGuids.Add(seatId);
+        }
+    }
+
+    private async Task<UserInfo> GetUserInfo()
+    {
+        return await JwtServices.GetUserInfoFromToken();
+    }
+
+    //TODO:реализовать
+    //Нужные данные о пользователе, зале и фильме
+    private async Task BuyTickets()
+    {
+        var userInfo = await GetUserInfo();
+        var makeDto = new BookTicketDTO
+        {
+            ScreeningId = (Guid)currentSeatScreeningId!,
+            SeatId = _seatsGuids,
+            UserEmail = userInfo.Email,
+            Price = (decimal)currenSeatModalPrice!
+        };
+
+        var response = await Http.PostAsJsonAsync("api/Ticket/book", makeDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var result = await response.Content.ReadFromJsonAsync<List<Guid>>();
+
+            if (result != null)
+            {
+                _bookedSeats.AddRange(result);
+            }
+        }
+
+        CloseModalSeat();
+    }
+
+    private async Task ConnectToHub()
+    {
+        _hubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri("https://localhost:7242/eventsMainHub"))
+            .Build();
+
+        _hubConnection.On("ReceiveSeatsUpdate", async () =>
+        {
+            _seatsGuids = new List<Guid>();
+            await LoadBookedSeats();
+            StateHasChanged();
+        });
+
+        try
+        {
+            await _hubConnection.StartAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Ошибка подключения к SignalR: {ex.Message}");
+        }
+    }
+}

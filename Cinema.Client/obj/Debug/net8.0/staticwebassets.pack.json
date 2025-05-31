@@ -1,0 +1,101 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\obj\\Debug\\net8.0\\compressed\\94o0609ffs.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Cinema.Client.styles.css",
+      "PackagePath": "staticwebassets\\Cinema.Client.styles.css"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\obj\\Debug\\net8.0\\service-worker-assets.js",
+      "PackagePath": "staticwebassets\\service-worker-assets.js"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\09f28d56-915a-44ef-bf4c-36cbaa3f3c9f_123.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\09f28d56-915a-44ef-bf4c-36cbaa3f3c9f_123.jpg"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\0ffe1c31-d4f9-47e5-bcb3-60b56985ba62_c5f3af93-6bbc-4d3f-9123-e011269b598b.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\0ffe1c31-d4f9-47e5-bcb3-60b56985ba62_c5f3af93-6bbc-4d3f-9123-e011269b598b.jpg"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\4e90ec02-7d7b-4f4d-8ce9-69607d7be9ef_123.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\4e90ec02-7d7b-4f4d-8ce9-69607d7be9ef_123.jpg"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\5c241c28-258a-4da3-b7f8-0716c9bc5b9b_8d24af6e-032f-4508-abb6-b864d214d3c3.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\5c241c28-258a-4da3-b7f8-0716c9bc5b9b_8d24af6e-032f-4508-abb6-b864d214d3c3.jpg"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\790be0e5-64fe-400b-9882-1c0d984636d0_8d24af6e-032f-4508-abb6-b864d214d3c3.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\790be0e5-64fe-400b-9882-1c0d984636d0_8d24af6e-032f-4508-abb6-b864d214d3c3.jpg"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\d84eddeb-c172-4560-8a38-9fc9fd4414fd_7abc97e973af4b829ebb1b6c44afbb63.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\d84eddeb-c172-4560-8a38-9fc9fd4414fd_7abc97e973af4b829ebb1b6c44afbb63.jpg"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\manifest.webmanifest",
+      "PackagePath": "staticwebassets\\manifest.webmanifest"
+    },
+    {
+      "Id": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\videoplayback.mp4",
+      "PackagePath": "staticwebassets\\videoplayback.mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Cinema.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Cinema.Client.props",
+      "PackagePath": "build\\Cinema.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Cinema.Client.props",
+      "PackagePath": "buildMultiTargeting\\Cinema.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Cinema.Client.props",
+      "PackagePath": "buildTransitive\\Cinema.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

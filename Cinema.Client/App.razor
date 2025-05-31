@@ -1,0 +1,13 @@
+﻿@using Cinema.Client.Layout
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <div role="alert">К сожалению, по этому адресу ничего нет.</div>
+        </LayoutView>
+    </NotFound>
+</Router>
