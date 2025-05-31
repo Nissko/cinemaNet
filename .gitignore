@@ -4,3 +4,9 @@
 /Cinema.Application/obj
 /Cinema.Client/bin/Debug
 /Cinema.Client/bin
+/Cinema.API/obj
+/Cinema.Application/bin
+/Cinema.Client/obj
+/Cinema.Domain/bin
+/Cinema.Infrastructure/bin
+/Cinema.Infrastructure/obj
