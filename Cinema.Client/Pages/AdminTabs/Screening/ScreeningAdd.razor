@@ -102,8 +102,8 @@
 
     private async Task LoadData()
     {
-        _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("api/Auditorium");
-        _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("api/Movie");
+        _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("Auditorium");
+        _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("Movie");
     }
     
     private async Task CreateNewCinema()
@@ -117,7 +117,7 @@
             Price = _newScreening.Price
         };
         
-        var response = await Http.PostAsJsonAsync("api/Screening", dtoToTransfer);
+        var response = await Http.PostAsJsonAsync("Screening", dtoToTransfer);
 
         if (response.IsSuccessStatusCode)
         {

@@ -17,7 +17,7 @@ public class AuthService
 
     public async Task Login(string email, string password)
     {
-        var response = await _http.PostAsJsonAsync("api/auth/login", new { Email = email, Password = password });
+        var response = await _http.PostAsJsonAsync("auth/login", new { Email = email, Password = password });
         var result = await response.Content.ReadFromJsonAsync<AuthResponse>();
 
         if (result != null)
@@ -29,7 +29,7 @@ public class AuthService
 
     public async Task Register(string email, string password)
     {
-        await _http.PostAsJsonAsync("api/auth/register", new { Email = email, Password = password });
+        await _http.PostAsJsonAsync("auth/register", new { Email = email, Password = password });
     }
 
     public async Task Logout()

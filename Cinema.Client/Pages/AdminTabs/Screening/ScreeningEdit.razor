@@ -104,9 +104,9 @@ else
         }
         else
         {
-            _screening = await Http.GetFromJsonAsync<ScreeningDTO>($"api/Screening/{Id}"); 
-            _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("api/Auditorium");
-            _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("api/Movie");
+            _screening = await Http.GetFromJsonAsync<ScreeningDTO>($"Screening/{Id}"); 
+            _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("Auditorium");
+            _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("Movie");
         
             _dateInput = DateOnly.FromDateTime(_screening.StartTime);
             _timeInput = TimeOnly.FromDateTime(_screening.StartTime);
@@ -124,7 +124,7 @@ else
             Price = _screening.Price
         };
 
-        var response = await Http.PutAsJsonAsync($"api/Screening/{Id}", updateAuditoriumDto);
+        var response = await Http.PutAsJsonAsync($"Screening/{Id}", updateAuditoriumDto);
 
         if (response.IsSuccessStatusCode)
         {

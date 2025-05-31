@@ -77,7 +77,7 @@ else
         }
         else
         {
-            _movie = await Http.GetFromJsonAsync<MovieDTO>($"api/Movie/{Id}");
+            _movie = await Http.GetFromJsonAsync<MovieDTO>($"Movie/{Id}");
         }
     }
     
@@ -103,7 +103,7 @@ else
             fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(_newImage.ContentType);
             formData.Add(fileContent, "file", _newImage.Name);
 
-            var uploadResponse = await Http.PostAsync("api/Movie/upload", formData);
+            var uploadResponse = await Http.PostAsync("Movie/upload", formData);
 
             if (uploadResponse.IsSuccessStatusCode)
             {
@@ -111,7 +111,7 @@ else
 
                 if (!string.IsNullOrEmpty(_movie.ImagePath))
                 {
-                    await Http.DeleteAsync($"api/Movie/delete-image?filename={Uri.EscapeDataString(_movie.ImagePath)}");
+                    await Http.DeleteAsync($"Movie/delete-image?filename={Uri.EscapeDataString(_movie.ImagePath)}");
                 }
             }
             else
@@ -130,7 +130,7 @@ else
             ImagePath = newImageUrl
         };
 
-        var response = await Http.PutAsJsonAsync($"api/Movie/{Id}", updateMovieDto);
+        var response = await Http.PutAsJsonAsync($"Movie/{Id}", updateMovieDto);
 
         if (response.IsSuccessStatusCode)
         {

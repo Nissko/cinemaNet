@@ -81,14 +81,14 @@ else
         }
         else
         {
-            _auditorium = await Http.GetFromJsonAsync<AuditoriumDTO>($"api/Auditorium/{Id}"); 
+            _auditorium = await Http.GetFromJsonAsync<AuditoriumDTO>($"Auditorium/{Id}"); 
             await LoadCinemas();
         }
     }
 
     private async Task LoadCinemas()
     {
-        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("api/Cinema");
+        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("Cinema");
         StateHasChanged();
     }
     
@@ -105,7 +105,7 @@ else
             CinemaId = _auditorium.CinemaId
         };
 
-        var response = await Http.PutAsJsonAsync($"api/Auditorium/{Id}", updateAuditoriumDto);
+        var response = await Http.PutAsJsonAsync($"Auditorium/{Id}", updateAuditoriumDto);
 
         if (response.IsSuccessStatusCode)
         {

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.API.Controllers.Cinema;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class SeatController : ControllerBase
 {
     private readonly ISeatRepository _seatRepository;

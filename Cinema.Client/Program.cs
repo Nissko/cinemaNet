@@ -8,7 +8,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://aib-cinema.ru/api/") });
+//TODO: указание Dev/Host
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://aib-cinema.ru/api/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5294/api") });
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddSingleton<JwtService>();
 

@@ -48,7 +48,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowWebAssemblyApp", policy =>
     {
-        policy.WithOrigins("http://aib-cinema.ru/")
+        //TODO: указание Dev/Host
+        //policy.WithOrigins("http://aib-cinema.ru/")
+        policy.WithOrigins("http://localhost:5249")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
@@ -73,14 +75,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseCors("AllowWebAssemblyApp");
 app.UseAuthorization();
 
 app.UseWebSockets();
 
 // Регистрация контроллеров и хаба
-app.MapControllers();
+//TODO: указание Dev/Host
+app.MapControllers().WithDisplayName("/api/[controller]");
+//app.MapControllers().WithDisplayName("/api/[controller]");
 app.MapHub<MovieHub>("/movieHub");
 app.MapHub<EventsMainHub>("/eventsMainHub");
 app.Run();

@@ -122,14 +122,14 @@
     
     private async Task LoadCinemas()
     {
-        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("api/Cinema");
+        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("Cinema");
         StateHasChanged();
     }
     
     public async Task LoadAuditoriums()
     {
-        _auditoriums = await Http.GetFromJsonAsync<List<AuditoriumDTO>>($"api/Auditorium/by-cinema/{_cinemas.FirstOrDefault().Id}") ?? new();
-        _seat = await Http.GetFromJsonAsync<SeatDTO[]>("api/Seat");
+        _auditoriums = await Http.GetFromJsonAsync<List<AuditoriumDTO>>($"Auditorium/by-cinema/{_cinemas.FirstOrDefault().Id}") ?? new();
+        _seat = await Http.GetFromJsonAsync<SeatDTO[]>("Seat");
         _seatsSort = _seat
             .OrderBy(s => s.RowNumber)
             .ThenBy(s => s.SeatNumber).ToList();
@@ -146,7 +146,7 @@
 
             await Task.Delay(500);
             
-            var response = await Http.DeleteAsync($"api/Auditorium/{auditoriumId}");
+            var response = await Http.DeleteAsync($"Auditorium/{auditoriumId}");
             StateHasChanged();
             
             if (!response.IsSuccessStatusCode)

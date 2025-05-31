@@ -929,15 +929,15 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-Fh96muW+hgum\/c5\/hLqUDJ6beXF48td8zWipx4pO\/eE=",
+      "hash": "sha256-59c42mjJDfjtQERX+nwL3O+RzwsGls656W36\/Lbyn3U=",
       "url": "_framework\/Cinema.Client.wasm"
     },
     {
-      "hash": "sha256-Sg23RmHkO4tyzhILHD2eCjJjwhnonmPEsoAWg3KYeGs=",
+      "hash": "sha256-ox9re5zfts2gXWTQFz1LrpnIZrifMJBbPUILcbo\/D0U=",
       "url": "_framework\/Cinema.Client.pdb"
     },
     {
-      "hash": "sha256-X54aYMH2eEKykgRKcmOIq7\/YU6voiTk3TQP6yk8gvAU=",
+      "hash": "sha256-o4yP50irBLbTaaVLI0fZfEiqfjKbdTc\/WXQTp1sNPtY=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -945,5 +945,5 @@
       "url": "_content\/Quick.AspNetCore.Components.Web.Extensions\/headManager.js"
     }
   ],
-  "version": "oXhjnXba"
+  "version": "csEGU07I"
 };

@@ -71,7 +71,7 @@
             formData.Add(fileContent, "file", _imageFile.Name);
         }
         
-        var uploadResponse = await Http.PostAsync("api/Movie/upload", formData);
+        var uploadResponse = await Http.PostAsync("Movie/upload", formData);
 
         string imageUrl = null;
 
@@ -93,7 +93,7 @@
             Rating = _newMovie.Rating,
             ImagePath = imageUrl
         };
-        var response = await Http.PostAsJsonAsync("api/Movie", dtoToTransfer);
+        var response = await Http.PostAsJsonAsync("Movie", dtoToTransfer);
 
         if (response.IsSuccessStatusCode)
         {

@@ -241,14 +241,14 @@ else
     {
         _isAuth = await AuthService.IsUserAuthenticated();
 
-        await ConnectToHub();
-        await LoadBookedSeats();
         await LoadAllScreenings();
+        await LoadBookedSeats();
+        await ConnectToHub();
     }
 
     private async Task LoadAllScreenings()
     {
-        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("api/Screening");
+        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("Screening");
         var today = DateTime.Today;
         _allScreenings = _allScreenings?
             .Where(s => s.StartTime.Date == today)
@@ -268,7 +268,7 @@ else
 
     private async void LoadScreeningsForDay(DateTime day)
     {
-        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("api/Screening");
+        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("Screening");
         var today = day.Date;
         _allScreenings = _allScreenings?
             .Where(s => s.StartTime.Date == today)
@@ -295,7 +295,7 @@ else
 
     private async void LoadSeats(Guid auditoriumId, string movieTitle, Guid screeningId, decimal scrPrice)
     {
-        _seatDto = await Http.GetFromJsonAsync<SeatDTO[]?>($"api/Seat/by-auditorium/{auditoriumId}");
+        _seatDto = await Http.GetFromJsonAsync<SeatDTO[]?>($"Seat/by-auditorium/{auditoriumId}");
         _seatsSort = _seatDto?
             .OrderBy(s => s.RowNumber)
             .ThenBy(s => s.SeatNumber)
@@ -310,7 +310,7 @@ else
 
     private async Task LoadBookedSeats()
     {
-        _ticketDtos = await Http.GetFromJsonAsync<TicketDTO[]>("/api/Ticket");
+        _ticketDtos = await Http.GetFromJsonAsync<TicketDTO[]>("/Ticket");
 
         if (_ticketDtos != null)
         {
@@ -383,7 +383,7 @@ else
             Price = (decimal)currenSeatModalPrice!
         };
 
-        var response = await Http.PostAsJsonAsync("api/Ticket/book", makeDto);
+        var response = await Http.PostAsJsonAsync("Ticket/book", makeDto);
 
         if (response.IsSuccessStatusCode)
         {
@@ -400,8 +400,10 @@ else
 
     private async Task ConnectToHub()
     {
+        //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("https://localhost:7242/eventsMainHub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/eventsMainHub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/eventsMainHub"))
             .Build();
 
         _hubConnection.On("ReceiveSeatsUpdate", async () =>

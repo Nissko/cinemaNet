@@ -49,7 +49,7 @@
             Address = _newCinema.Address
         };
         
-        var response = await Http.PostAsJsonAsync("api/Cinema", dtoToTransfer);
+        var response = await Http.PostAsJsonAsync("Cinema", dtoToTransfer);
 
         if (response.IsSuccessStatusCode)
         {

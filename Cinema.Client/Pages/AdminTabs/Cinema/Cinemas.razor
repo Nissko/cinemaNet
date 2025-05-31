@@ -65,7 +65,7 @@
     
     private async Task LoadCinemas()
     {
-        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("api/Cinema");
+        _cinemas = await Http.GetFromJsonAsync<CinemaDTO[]>("Cinema");
         StateHasChanged();
     }
     
@@ -78,7 +78,7 @@
 
             await Task.Delay(500);
             
-            var response = await Http.DeleteAsync($"api/Cinema/{cinemaId}");
+            var response = await Http.DeleteAsync($"Cinema/{cinemaId}");
             
             if (!response.IsSuccessStatusCode)
             {

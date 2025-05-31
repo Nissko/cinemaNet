@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace Cinema.API.Controllers.Cinema;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class MovieController : ControllerBase
 {
     private readonly IMovieRepository _movieRepository;

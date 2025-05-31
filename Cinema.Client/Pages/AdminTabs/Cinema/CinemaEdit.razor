@@ -50,7 +50,7 @@ else
         }
         else
         {
-            _cinema = await Http.GetFromJsonAsync<CinemaDTO>($"api/Cinema/{Id}");
+            _cinema = await Http.GetFromJsonAsync<CinemaDTO>($"Cinema/{Id}");
         }
     }
     
@@ -65,7 +65,7 @@ else
             Address = _cinema.Address
         };
 
-        var response = await Http.PutAsJsonAsync($"api/Cinema/{Id}", updateCinemaDto);
+        var response = await Http.PutAsJsonAsync($"Cinema/{Id}", updateCinemaDto);
 
         if (response.IsSuccessStatusCode)
         {

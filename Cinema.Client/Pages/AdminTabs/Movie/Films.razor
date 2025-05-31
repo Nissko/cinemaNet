@@ -83,15 +83,17 @@
         }
         else
         {
-            await ConnectToHub();
             await LoadMovies();
+            await ConnectToHub();
         }
     }
 
     private async Task ConnectToHub()
     {
+        //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            .WithUrl(NavigationManager.ToAbsoluteUri("https://localhost:7242/moviehub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/moviehub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/moviehub"))
             .Build();
         
         _hubConnection.On<MovieDTO>("ReceiveMovieUpdate", movie =>
@@ -137,7 +139,7 @@
 
     private async Task LoadMovies()
     {
-        _movies = await Http.GetFromJsonAsync<MovieDTO[]>("api/Movie");
+        _movies = await Http.GetFromJsonAsync<MovieDTO[]>("Movie");
         StateHasChanged();
     }
 
@@ -153,7 +155,7 @@
 
             await Task.Delay(500);
             
-            var response = await Http.DeleteAsync($"api/Movie/{movieId}");
+            var response = await Http.DeleteAsync($"Movie/{movieId}");
             
             if (!response.IsSuccessStatusCode)
             {

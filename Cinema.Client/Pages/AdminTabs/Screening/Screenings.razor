@@ -84,17 +84,19 @@ else if (_screeningList.Count == 0)
     
     private async Task LoadAllScreenings()
     {
-        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("api/Screening");
+        _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("Screening");
 
-        var today = DateTime.Today;
+        var today = DateTime.Today.ToUniversalTime();
+        var startDate = today.AddDays(-14);
+
         _allScreenings = _allScreenings?
-            .Where(s => s.StartTime.Year == today.Year && s.StartTime.Month == today.Month)
+            .Where(s => s.StartTime >= startDate && s.StartTime <= today.AddDays(30))
             .ToArray();
 
         StateHasChanged();
     }
     
-    public async Task LoadScreenings(ChangeEventArgs args)
+    public Task LoadScreenings(ChangeEventArgs args)
     {
         if (Guid.TryParse(args.Value?.ToString(), out var movieId) && movieId != Guid.Empty)
         {
@@ -116,6 +118,7 @@ else if (_screeningList.Count == 0)
         }
 
         StateHasChanged();
+        return Task.CompletedTask;
     }
     
     private async Task DeleteScreening(Guid screeningId)
@@ -127,7 +130,7 @@ else if (_screeningList.Count == 0)
 
             await Task.Delay(500);
             
-            var response = await Http.DeleteAsync($"api/Screening/{screeningId}");
+            var response = await Http.DeleteAsync($"Screening/{screeningId}");
             
             _screeningList.RemoveAll(s => s.Id == screeningId);
             _screeningGroups = _screeningList
