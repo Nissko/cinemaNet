@@ -13,3 +13,19 @@ C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Applicati
 C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\refint\Cinema.Application.dll
 C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\Cinema.Application.pdb
 C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Application\obj\Debug\net8.0\ref\Cinema.Application.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Application\bin\Debug\net8.0\Cinema.Application.deps.json
+C:\GitHubRepositories\cinemaNet\Cinema.Application\bin\Debug\net8.0\Cinema.Application.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Application\bin\Debug\net8.0\Cinema.Application.pdb
+C:\GitHubRepositories\cinemaNet\Cinema.Application\bin\Debug\net8.0\Cinema.Domain.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Application\bin\Debug\net8.0\Cinema.Domain.pdb
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.csproj.AssemblyReference.cache
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.AssemblyInfoInputs.cache
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.AssemblyInfo.cs
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.csproj.CoreCompileInputs.cache
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.sourcelink.json
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.A.B61B4880.Up2Date
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\refint\Cinema.Application.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\Cinema.Application.pdb
+C:\GitHubRepositories\cinemaNet\Cinema.Application\obj\Debug\net8.0\ref\Cinema.Application.dll

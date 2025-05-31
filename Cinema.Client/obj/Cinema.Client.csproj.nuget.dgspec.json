@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\Cinema.Client.csproj": {}
+    "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj": {}
   },
   "projects": {
-    "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\Cinema.Client.csproj": {
+    "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\Cinema.Client.csproj",
+        "projectUniqueName": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
         "projectName": "Cinema.Client",
-        "projectPath": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\Cinema.Client.csproj",
+        "projectPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
         "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-        "outputPath": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\obj\\",
+        "outputPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

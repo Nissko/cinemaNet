@@ -1,0 +1,3 @@
+C:\Users\niksk\AppData\Local\Temp\rider-publish6866935705251157872\Cinema.Domain.dll
+C:\Users\niksk\AppData\Local\Temp\rider-publish6866935705251157872\Cinema.Domain.deps.json
+C:\Users\niksk\AppData\Local\Temp\rider-publish6866935705251157872\Cinema.Domain.pdb

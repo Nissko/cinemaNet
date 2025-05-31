@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jq0fxUHUJxU=",
+  "dgSpecHash": "5aoiRAam1hw=",
   "success": true,
-  "projectFilePath": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\Cinema.Client.csproj",
+  "projectFilePath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.16\\microsoft.aspnetcore.authorization.8.0.16.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.16\\microsoft.aspnetcore.components.8.0.16.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I2UiqVS31BA=",
+  "dgSpecHash": "hHpT94v5bqg=",
   "success": true,
-  "projectFilePath": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Infrastructure\\Cinema.Infrastructure.csproj",
+  "projectFilePath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Infrastructure\\Cinema.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\niksk\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

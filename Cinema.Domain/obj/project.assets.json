@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Domain\\Cinema.Domain.csproj",
+      "projectUniqueName": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Domain\\Cinema.Domain.csproj",
       "projectName": "Cinema.Domain",
-      "projectPath": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Domain\\Cinema.Domain.csproj",
+      "projectPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Domain\\Cinema.Domain.csproj",
       "packagesPath": "C:\\Users\\niksk\\.nuget\\packages\\",
-      "outputPath": "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Domain\\obj\\",
+      "outputPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

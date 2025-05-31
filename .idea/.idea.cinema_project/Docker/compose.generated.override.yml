@@ -2,7 +2,7 @@
 services:
   cinema.api:
     build:
-      context: "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project"
+      context: "C:\\GitHubRepositories\\cinemaNet"
       dockerfile: "Cinema.API/Dockerfile"
       target: "base"
     command: []
@@ -15,26 +15,24 @@ services:
     image: "cinema.api:dev"
     ports: []
     volumes:
-    - "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.API:/app:rw"
-    - "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project:/src:rw"
+    - "C:\\GitHubRepositories\\cinemaNet\\Cinema.API:/app:rw"
+    - "C:\\GitHubRepositories\\cinemaNet:/src:rw"
     - "C:\\Users\\niksk\\.nuget\\packages:/home/app/.nuget/packages"
     working_dir: "/app"
   cinema.client:
     build:
-      context: "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project"
+      context: "C:\\GitHubRepositories\\cinemaNet"
       dockerfile: "Cinema.Client/Dockerfile"
-      target: "build"
     command: []
     entrypoint:
     - "dotnet"
-    - "/app/../../../../../Users/niksk/.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/8.0.16/tools/blazor-devserver.dll"
+    - "/app/../../../Users/niksk/.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/8.0.16/tools/blazor-devserver.dll"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-      DOTNET_USE_POLLING_FILE_WATCHER: "true"
     image: "cinema.client:dev"
     ports: []
     volumes:
-    - "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client:/app:rw"
-    - "C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project:/src:rw"
+    - "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client:/app:rw"
+    - "C:\\GitHubRepositories\\cinemaNet:/src:rw"
     - "C:\\Users\\niksk\\.nuget\\packages:/root/.nuget/packages"
     working_dir: "/app"

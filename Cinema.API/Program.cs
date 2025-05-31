@@ -48,7 +48,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowWebAssemblyApp", policy =>
     {
-        policy.WithOrigins("https://localhost:7104")
+        policy.WithOrigins("http://aib-cinema.ru/")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();

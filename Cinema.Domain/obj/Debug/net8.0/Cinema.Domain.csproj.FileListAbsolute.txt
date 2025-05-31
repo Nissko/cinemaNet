@@ -9,3 +9,15 @@ C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Domain\ob
 C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Domain\obj\Debug\net8.0\refint\Cinema.Domain.dll
 C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.pdb
 C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Domain\obj\Debug\net8.0\ref\Cinema.Domain.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\bin\Debug\net8.0\Cinema.Domain.deps.json
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\bin\Debug\net8.0\Cinema.Domain.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\bin\Debug\net8.0\Cinema.Domain.pdb
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.AssemblyInfoInputs.cache
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.AssemblyInfo.cs
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.csproj.CoreCompileInputs.cache
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.sourcelink.json
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\refint\Cinema.Domain.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\Cinema.Domain.pdb
+C:\GitHubRepositories\cinemaNet\Cinema.Domain\obj\Debug\net8.0\ref\Cinema.Domain.dll
