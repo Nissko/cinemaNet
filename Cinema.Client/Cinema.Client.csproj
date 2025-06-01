@@ -8,6 +8,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <!-- IL Linker -->
     <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <TrimMode>Link</TrimMode>
     <BlazorWebAssemblyLoadAllGlobalizationData>false</BlazorWebAssemblyLoadAllGlobalizationData>
   </PropertyGroup>
 

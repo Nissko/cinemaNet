@@ -17,7 +17,6 @@ ContainerBuilder build = new ContainerBuilder();
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddResponseCompression(options =>
 {
     options.Providers.Add<BrotliCompressionProvider>();
