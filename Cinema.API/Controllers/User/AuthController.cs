@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Cinema.API.Controllers.User
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly CinemaDbContext _context;

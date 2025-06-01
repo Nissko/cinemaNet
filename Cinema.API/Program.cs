@@ -8,6 +8,7 @@ using Cinema.Infrastructure.Services;
 using Cinema.Infrastructure.Services.MainPageHub;
 using Cinema.Infrastructure.Setting;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.WebSockets;
 using Microsoft.IdentityModel.Tokens;
 
@@ -15,6 +16,14 @@ ContainerBuilder build = new ContainerBuilder();
 //build.RegisterModule(new ApplicationModule());
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddResponseCompression(options =>
+{
+    options.Providers.Add<BrotliCompressionProvider>();
+    options.Providers.Add<GzipCompressionProvider>();
+    options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/wasm" });
+});
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
 builder.Services.AddAuthentication(options =>
@@ -68,6 +77,16 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseResponseCompression();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    OnPrepareResponse = ctx =>
+    {
+        ctx.Context.Response.Headers.CacheControl = "public,max-age=31536000";
+    }
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -83,8 +102,9 @@ app.UseWebSockets();
 
 // Регистрация контроллеров и хаба
 //TODO: указание Dev/Host
+
+//app.MapControllers();
 app.MapControllers().WithDisplayName("/api/[controller]");
-//app.MapControllers().WithDisplayName("/api/[controller]");
 app.MapHub<MovieHub>("/movieHub");
 app.MapHub<EventsMainHub>("/eventsMainHub");
 app.Run();

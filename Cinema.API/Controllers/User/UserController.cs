@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.API.Controllers.User;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class UserController : ControllerBase
 {
     private readonly IUserRepository _userService;
