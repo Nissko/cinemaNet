@@ -50,6 +50,22 @@ public class TicketRepository : ITicketRepository
             };
     }
 
+    public async Task<IEnumerable<TicketDto>> GetByScreeningIdAsync(Guid screeningId)
+    {
+        var ticket = await _context.Ticket.Where(t => t.ScreeningId == screeningId).ToListAsync();
+
+        return ticket.Select(t => new TicketDto
+        {
+            Id = t.Id,
+            PurchaseDate = t.PurchaseDate,
+            Status = t.Status.ToString(),
+            Price = t.Price,
+            ScreeningId = t.ScreeningId,
+            SeatId = t.SeatId,
+            UserId = t.UserId
+        });
+    }
+
     public async Task<List<Guid>> BookTicketAsync(BookTicketDto dto)
     {
         var price = dto.Price;

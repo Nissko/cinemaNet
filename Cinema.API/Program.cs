@@ -104,6 +104,6 @@ app.UseWebSockets();
 
 //app.MapControllers();
 app.MapControllers().WithDisplayName("/api/[controller]");
-app.MapHub<MovieHub>("/movieHub");
-app.MapHub<EventsMainHub>("/eventsMainHub");
+app.MapHub<MovieHub>("/hub/movieHub");
+app.MapHub<EventsMainHub>("/hub/eventsMainHub");
 app.Run();

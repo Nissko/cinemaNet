@@ -83,8 +83,8 @@
         }
         else
         {
-            await LoadMovies();
             await ConnectToHub();
+            await LoadMovies();
         }
     }
 
@@ -92,8 +92,8 @@
     {
         //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/moviehub"))
-            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/moviehub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/api/hub/moviehub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/hub/moviehub"))
             .Build();
         
         _hubConnection.On<MovieDTO>("ReceiveMovieUpdate", movie =>

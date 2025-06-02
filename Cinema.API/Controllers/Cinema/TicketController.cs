@@ -27,6 +27,12 @@ public class TicketController : ControllerBase
         var ticket = await _ticketRepository.GetByIdAsync(id);
         return ticket is null ? NotFound() : Ok(ticket);
     }
+    
+    [HttpGet("by-screening/{screeningId:guid}")]
+    public async Task<ActionResult<IEnumerable<TicketDto>>> GetScreeningId(Guid screeningId)
+    {
+        return Ok(await _ticketRepository.GetByScreeningIdAsync(screeningId));
+    }
 
     /// <summary>
     /// Аренда

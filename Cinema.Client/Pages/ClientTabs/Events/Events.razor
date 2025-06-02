@@ -1,5 +1,4 @@
 ﻿@page "/"
-@page "/events"
 @using System.Globalization
 @using Cinema.Client.DTO.Screening
 @using Cinema.Client.DTO.Seat
@@ -242,8 +241,8 @@ else
         _isAuth = await AuthService.IsUserAuthenticated();
 
         await LoadAllScreenings();
-        await LoadBookedSeats();
-        await ConnectToHub();
+        //TODO: Починить SignalR
+        //await ConnectToHub();
     }
 
     private async Task LoadAllScreenings()
@@ -295,23 +294,34 @@ else
 
     private async void LoadSeats(Guid auditoriumId, string movieTitle, Guid screeningId, decimal scrPrice)
     {
+        _bookedSeats.Clear();
+        _seatsSort.Clear();
+        _seatsGuids.Clear();
+        currentSeatModalForAuditoriumId = null;
+        currentSeatModalMovieTitle = null;
+        currentSeatScreeningId = null;
+        currenSeatModalPrice = null;
+        
+        await LoadBookedSeats(screeningId);
+
         _seatDto = await Http.GetFromJsonAsync<SeatDTO[]?>($"Seat/by-auditorium/{auditoriumId}");
         _seatsSort = _seatDto?
             .OrderBy(s => s.RowNumber)
             .ThenBy(s => s.SeatNumber)
             .ToList() ?? new List<SeatDTO>();
-
+        
         currentSeatModalForAuditoriumId = auditoriumId;
         currentSeatModalMovieTitle = movieTitle;
         currentSeatScreeningId = screeningId;
         currenSeatModalPrice = scrPrice;
+
         StateHasChanged();
     }
 
-    private async Task LoadBookedSeats()
+    private async Task LoadBookedSeats(Guid screeningId)
     {
-        _ticketDtos = await Http.GetFromJsonAsync<TicketDTO[]>("/Ticket");
-
+        _ticketDtos = await Http.GetFromJsonAsync<TicketDTO[]?>($"Ticket/by-screening/{screeningId}");
+        
         if (_ticketDtos != null)
         {
             _bookedSeats.AddRange(_ticketDtos.Select(t => t.SeatId));
@@ -398,12 +408,13 @@ else
         CloseModalSeat();
     }
 
-    private async Task ConnectToHub()
+    //TODO: Починить SignalR
+    /*private async Task ConnectToHub()
     {
         //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/eventsMainHub"))
-            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/eventsMainHub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/api/hub/eventsMainHub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/hub/eventsMainHub"))
             .Build();
 
         _hubConnection.On("ReceiveSeatsUpdate", async () =>
@@ -421,5 +432,5 @@ else
         {
             Console.Error.WriteLine($"Ошибка подключения к SignalR: {ex.Message}");
         }
-    }
+    }*/
 }

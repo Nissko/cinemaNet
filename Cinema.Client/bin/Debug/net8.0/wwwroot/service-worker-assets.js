@@ -49,7 +49,7 @@
       "url": "images_movies\/images\/movies\/d84eddeb-c172-4560-8a38-9fc9fd4414fd_7abc97e973af4b829ebb1b6c44afbb63.jpg"
     },
     {
-      "hash": "sha256-VNlZhZeXkRhw3FcCk5ts5ZrKmtQfZxPMUR6588XgS6U=",
+      "hash": "sha256-OMkYz8e3+pGkmw5J1rxlz82JyNGL0xGk4h\/TjkNZAqQ=",
       "url": "index.html"
     },
     {
@@ -929,15 +929,15 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-hYrt\/noKpAou5fV8NiHGGi00L0LjSUDewXcqKBTO24E=",
+      "hash": "sha256-pmwmiSq6zjwQNQbmMmlZnAVdPWj45KJMk24TvdyQMWc=",
       "url": "_framework\/Cinema.Client.wasm"
     },
     {
-      "hash": "sha256-MjuqBFrt9J4hNEcGG1QlIC+HehTqbheHPGDIDksENJ0=",
+      "hash": "sha256-Y3bxxiggHgTdZN1j7TBjDXsLcPYOjn0PdPj9LGVPNJY=",
       "url": "_framework\/Cinema.Client.pdb"
     },
     {
-      "hash": "sha256-E\/MI83EZVaONWdG+MTFihIKP3+T2r8DJ5B8h4lJERxQ=",
+      "hash": "sha256-BjQo\/rNpNqHWTDDuhTyMVZ\/iFeE6ieYDJldGGyRrMdU=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -945,5 +945,5 @@
       "url": "_content\/Quick.AspNetCore.Components.Web.Extensions\/headManager.js"
     }
   ],
-  "version": "jFpB\/EdA"
+  "version": "TgI9mG2V"
 };

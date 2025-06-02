@@ -33,11 +33,11 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-F\/c9KwPwAGKjN7Aef2YFw7oYfs8r8Im7rxJclbzNUVU=",
+      "hash": "sha256-M8Tp\/9CqTeB\/qis\/A5m6AZat+3NeyxhOBXloe5qBFkI=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-1oTRehJA8CZaoXlNu8c9GBSngLZ96g1ZRc6ibTB66vQ=",
+      "hash": "sha256-vnh71JT\/RPVDIjBthWX4J0OJN3e94K8lX8kH+sH7Kuk=",
       "url": "_framework\/Cinema.Client.wasm"
     },
     {
@@ -917,7 +917,7 @@
       "url": "images_movies\/images\/movies\/d84eddeb-c172-4560-8a38-9fc9fd4414fd_7abc97e973af4b829ebb1b6c44afbb63.jpg"
     },
     {
-      "hash": "sha256-VNlZhZeXkRhw3FcCk5ts5ZrKmtQfZxPMUR6588XgS6U=",
+      "hash": "sha256-OMkYz8e3+pGkmw5J1rxlz82JyNGL0xGk4h\/TjkNZAqQ=",
       "url": "index.html"
     },
     {
@@ -933,5 +933,5 @@
       "url": "_content\/Quick.AspNetCore.Components.Web.Extensions\/headManager.js"
     }
   ],
-  "version": "zNs\/r9gu"
+  "version": "rHHw9Fjr"
 };
