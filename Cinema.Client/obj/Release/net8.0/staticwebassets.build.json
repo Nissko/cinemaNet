@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NCfP0eACyzK+P1TX3d0bT4cFRlDHDxpHumKcJzsFEUI=",
+  "Hash": "mNiToCY8EiJ6GBa7Ha2S5a/grD0tOAJ8CEaSxavFJt0=",
   "Source": "Cinema.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -109,7 +109,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.js.map"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.js.map"
     },
     {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.16.5fsua8xcvx.js",
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.16.jo2xizczsd.js",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.16.5fsua8xcvx.js",
+      "RelativePath": "_framework/dotnet.native.8.0.16.jo2xizczsd.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,7 +147,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.native.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.native.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
@@ -166,15 +166,15 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
     },
     {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.16.qc9dtz10ow.js",
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.16.feh6t7aoiq.js",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.16.qc9dtz10ow.js",
+      "RelativePath": "_framework/dotnet.runtime.8.0.16.feh6t7aoiq.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,7 +185,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
@@ -204,7 +204,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
@@ -223,7 +223,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
@@ -242,7 +242,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
@@ -261,7 +261,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.16\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.wasm",
@@ -4577,25 +4577,6 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.ComponentModel.Primitives.wasm"
     },
     {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\4ihikxrdm2.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
-    },
-    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\4kphg3kaxs.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -4613,25 +4594,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Net.Security.wasm"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\4slina04jz.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\4x5wghcx4t.gz",
@@ -4653,6 +4615,25 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Collections.Immutable.wasm"
     },
     {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\4ywpidncaf.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
+    },
+    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\5era4zsd2t.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -4670,25 +4651,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.wasm"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\5fsua8xcvx.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.16.5fsua8xcvx.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.16.5fsua8xcvx.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.16.5fsua8xcvx.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\5kqxe4tluh.gz",
@@ -4917,6 +4879,44 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Transactions.Local.wasm"
+    },
+    {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\79ne4v5ts3.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
+    },
+    {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\84h5yy5sn2.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\879h8txhhk.gz",
@@ -5204,6 +5204,25 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Features.wasm"
     },
     {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\agm8ieibnl.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
+    },
+    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\ahqy1ygix6.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -5430,25 +5449,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Runtime.Handles.wasm"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\bzn7iko39s.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\c77mc8ui9r.gz",
@@ -5907,6 +5907,25 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Security.Claims.wasm"
     },
     {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\feh6t7aoiq.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.8.0.16.feh6t7aoiq.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.16.feh6t7aoiq.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.16.feh6t7aoiq.js"
+    },
+    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\ff2876wcj3.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -6192,25 +6211,6 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Core.wasm"
     },
     {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\gs4l6xuryg.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
-    },
-    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\h1drdjf2ze.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -6399,6 +6399,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.IO.IsolatedStorage.wasm"
+    },
+    {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\jo2xizczsd.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.8.0.16.jo2xizczsd.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.16.jo2xizczsd.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.16.jo2xizczsd.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\js2gxtditp.gz",
@@ -6646,25 +6665,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Net.Mail.wasm"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\lsk4ibrg80.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\lz579e9ry4.gz",
@@ -7218,25 +7218,6 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Web.wasm"
     },
     {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\qc9dtz10ow.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.16.qc9dtz10ow.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.16.qc9dtz10ow.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.16.qc9dtz10ow.js"
-    },
-    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\qflqgpcmng.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -7446,6 +7427,25 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Runtime.InteropServices.wasm"
     },
     {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\sogcgk20ed.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
+    },
+    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\suwktx5zrc.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -7636,6 +7636,25 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Net.Sockets.wasm"
     },
     {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\uhmo1fg7hv.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
+    },
+    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\usjg2i1eqm.gz",
       "SourceId": "Cinema.Client",
       "SourceType": "Computed",
@@ -7710,25 +7729,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Linq.wasm"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\vsa88ox5o5.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\vwpdl2w48f.gz",
@@ -7881,6 +7881,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.wasm"
+    },
+    {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\ws36w5rshv.gz",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\dotnet.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\wy3c7b1v0v.gz",
@@ -8052,25 +8071,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Threading.Channels.wasm"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\yc399fu7nn.gz",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\compressed\\yo29pqkdof.gz",
@@ -8377,82 +8377,6 @@
       "OriginalItemSpec": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Cinema.Client.bundle.scp.css"
     },
     {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\service-worker-assets.js",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "service-worker-assets.js",
-      "AssetKind": "Publish",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorServiceWorker",
-      "AssetTraitValue": "ServiceWorkerManifest",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "obj\\Release\\net8.0\\service-worker-assets.js"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\service-worker-assets.js.build",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\bin\\Release\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "service-worker-assets.js",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorServiceWorker",
-      "AssetTraitValue": "ServiceWorkerManifest",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "obj\\Release\\net8.0\\service-worker-assets.js.build"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\service-worker\\service-worker.js",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\service-worker\\",
-      "BasePath": "/",
-      "RelativePath": "service-worker.js",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorServiceWorker",
-      "AssetTraitValue": "ServiceWorkerJs",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "wwwroot\\service-worker.js"
-    },
-    {
-      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\service-worker\\service-worker.published.js",
-      "SourceId": "Cinema.Client",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Release\\net8.0\\service-worker\\",
-      "BasePath": "/",
-      "RelativePath": "service-worker.js",
-      "AssetKind": "Publish",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "BlazorServiceWorker",
-      "AssetTraitValue": "ServiceWorkerJs",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\service-worker.published.js"
-    },
-    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\css\\app.css",
       "SourceId": "Cinema.Client",
       "SourceType": "Discovered",
@@ -8605,6 +8529,25 @@
       "OriginalItemSpec": "wwwroot\\images_movies\\images\\movies\\0ffe1c31-d4f9-47e5-bcb3-60b56985ba62_c5f3af93-6bbc-4d3f-9123-e011269b598b.jpg"
     },
     {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\19f00ee8-5737-4616-bd40-bda79be405f6_777.jpg",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images_movies/images/movies/19f00ee8-5737-4616-bd40-bda79be405f6_777.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images_movies\\images\\movies\\19f00ee8-5737-4616-bd40-bda79be405f6_777.jpg"
+    },
+    {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\4e90ec02-7d7b-4f4d-8ce9-69607d7be9ef_123.jpg",
       "SourceId": "Cinema.Client",
       "SourceType": "Discovered",
@@ -8717,6 +8660,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\manifest.webmanifest"
+    },
+    {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\service-worker.js",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "service-worker.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\service-worker.js"
+    },
+    {
+      "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\service-worker.published.js",
+      "SourceId": "Cinema.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "service-worker.published.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\service-worker.published.js"
     },
     {
       "Identity": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\videoplayback.mp4",

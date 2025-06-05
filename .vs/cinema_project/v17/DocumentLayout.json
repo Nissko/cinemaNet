@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GitHubRepositories\\cinemaNet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E87BADC-07BE-4799-8426-BBAD53A6E0D0}|Cinema.Client\\Cinema.Client.csproj|c:\\githubrepositories\\cinemanet\\cinema.client\\cinema.client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9E87BADC-07BE-4799-8426-BBAD53A6E0D0}|Cinema.Client\\Cinema.Client.csproj|solutionrelative:cinema.client\\cinema.client.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E87BADC-07BE-4799-8426-BBAD53A6E0D0}|Cinema.Client\\Cinema.Client.csproj|c:\\githubrepositories\\cinemanet\\cinema.client\\cinema.client.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{9E87BADC-07BE-4799-8426-BBAD53A6E0D0}|Cinema.Client\\Cinema.Client.csproj|solutionrelative:cinema.client\\cinema.client.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cinema.Client",
+              "DocumentMoniker": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
+              "RelativeDocumentMoniker": "Cinema.Client\\Cinema.Client.csproj",
+              "ToolTip": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
+              "RelativeToolTip": "Cinema.Client\\Cinema.Client.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-05T10:00:50.05Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cinema.Client",
+              "DocumentMoniker": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
+              "RelativeDocumentMoniker": "Cinema.Client\\Cinema.Client.csproj",
+              "ToolTip": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
+              "RelativeToolTip": "Cinema.Client\\Cinema.Client.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-05T10:06:32.935Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

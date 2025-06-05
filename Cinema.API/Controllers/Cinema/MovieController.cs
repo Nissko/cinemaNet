@@ -81,7 +81,9 @@ public class MovieController : ControllerBase
         if (file == null || file.Length == 0)
             return BadRequest("Файл не выбран");
 
-        var uploadsFolder = Path.Combine("C:\\UniversityFiles\\VYZ С#\\cinema_csharp_project\\cinema_project\\Cinema.Client\\wwwroot\\images_movies", "images", "movies");
+        //TODO: указание Dev/Host
+        //var uploadsFolder = Path.Combine("/root/riderDeploy/wwwroot", "images", "movies");
+        var uploadsFolder = Path.Combine("C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies", "images", "movies");
         Directory.CreateDirectory(uploadsFolder); // Создаем папку, если её нет
 
         var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";

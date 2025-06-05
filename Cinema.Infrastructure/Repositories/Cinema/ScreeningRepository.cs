@@ -1,4 +1,5 @@
-﻿using Cinema.Application.Application.Interfaces.Cinema;
+﻿using System.Globalization;
+using Cinema.Application.Application.Interfaces.Cinema;
 using Cinema.Application.Common.Interfaces;
 using Cinema.Application.DTO.Auditorium;
 using Cinema.Application.DTO.Movie;
@@ -43,7 +44,41 @@ public class ScreeningRepository : IScreeningRepository
                 SeatsPerRow = s.AuditoriumEntity.SeatsPerRow,
                 CinemaId = s.AuditoriumEntity.CinemaId
             }
-        });
+        }).OrderBy(s => s.StartTime);
+    }
+    
+    public async Task<IEnumerable<ScreeningDto>> GetByDayAsync(DateTime date)
+    {
+        var screenings = await _context.Screening
+            .Where(t => t.StartTime.Day == date.Month && t.StartTime.Day == date.Month && t.StartTime.Year == date.Year)
+            .Include(t => t.MovieEntity)
+            .Include(t => t.AuditoriumEntity)
+            .ToListAsync();
+
+        return screenings.Select(s => new ScreeningDto
+        {
+            Id = s.Id,
+            StartTime = s.StartTime,
+            Duration = s.Duration,
+            Price = s.Price,
+            Movie = new MovieDto
+            {
+                Id = s.MovieEntity.Id,
+                Title = s.MovieEntity.Title,
+                Description = s.MovieEntity.Description,
+                Duration = s.MovieEntity.Duration.TotalMinutes.ToString(),
+                Rating = s.MovieEntity.Rating,
+                ImagePath = s.MovieEntity.ImagePath
+            },
+            Auditorium = new AuditoriumDto
+            {
+                Id = s.AuditoriumEntity.Id,
+                Number = s.AuditoriumEntity.Number,
+                RowsCount = s.AuditoriumEntity.RowsCount,
+                SeatsPerRow = s.AuditoriumEntity.SeatsPerRow,
+                CinemaId = s.AuditoriumEntity.CinemaId
+            }
+        }).OrderBy(s => s.StartTime);
     }
 
     public async Task<ScreeningDto?> GetByIdAsync(Guid id)
@@ -162,7 +197,7 @@ public class ScreeningRepository : IScreeningRepository
         if (conflictValid)
             throw new Exception("Показ пересекается по времени с другим в этом зале");
 
-        screening.Update(dto.StartTime.ToUniversalTime(), dto.MovieId, dto.AuditoriumId, dto.Price);
+        screening.Update(dto.StartTime, dto.MovieId, dto.AuditoriumId, dto.Price);
 
         _context.Screening.Update(screening);
         await _context.SaveChangesAsync(CancellationToken.None);
@@ -236,6 +271,6 @@ public class ScreeningRepository : IScreeningRepository
                 SeatsPerRow = s.AuditoriumEntity.SeatsPerRow,
                 CinemaId = s.AuditoriumEntity.CinemaId
             }
-        });
+        }).OrderBy(s => s.StartTime);
     }
 }

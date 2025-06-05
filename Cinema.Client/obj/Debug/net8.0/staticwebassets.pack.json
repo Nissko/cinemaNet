@@ -13,14 +13,6 @@
       "PackagePath": "staticwebassets\\Cinema.Client.styles.css"
     },
     {
-      "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Debug\\net8.0\\service-worker-assets.js",
-      "PackagePath": "staticwebassets\\service-worker-assets.js"
-    },
-    {
-      "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
-      "PackagePath": "staticwebassets\\service-worker.js"
-    },
-    {
       "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
@@ -53,6 +45,10 @@
       "PackagePath": "staticwebassets\\images_movies\\images\\movies\\0ffe1c31-d4f9-47e5-bcb3-60b56985ba62_c5f3af93-6bbc-4d3f-9123-e011269b598b.jpg"
     },
     {
+      "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\19f00ee8-5737-4616-bd40-bda79be405f6_777.jpg",
+      "PackagePath": "staticwebassets\\images_movies\\images\\movies\\19f00ee8-5737-4616-bd40-bda79be405f6_777.jpg"
+    },
+    {
       "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies\\images\\movies\\4e90ec02-7d7b-4f4d-8ce9-69607d7be9ef_123.jpg",
       "PackagePath": "staticwebassets\\images_movies\\images\\movies\\4e90ec02-7d7b-4f4d-8ce9-69607d7be9ef_123.jpg"
     },
@@ -75,6 +71,14 @@
     {
       "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\manifest.webmanifest",
       "PackagePath": "staticwebassets\\manifest.webmanifest"
+    },
+    {
+      "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\service-worker.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.published.js"
     },
     {
       "Id": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\videoplayback.mp4",

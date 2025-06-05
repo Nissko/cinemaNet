@@ -31,25 +31,29 @@
     
     <div class="mb-3">
         <label for="zalFormControlInput" class="form-label">Зал:</label>
-        @if (_auditoriumDto != null)
+        @if (_auditoriumDto == null)
+        { 
+            <div role="status">Загрузка фильмов...</div>
+        }
+        else
         {
             <select required class="form-control" id="zalFormControlInput" rows="3" @bind="_newScreening.Auditorium.Id">
-                <option selected="" disabled="">Выберите фильм</option>
+                <option selected="" disabled="">Выберите зал</option>
                 @foreach (var aud in _auditoriumDto)
                 {
                     <option value="@aud.Id">Зал "@aud.Number"</option>
                 }
             </select>
         }
-        else
-        {
-            <div role="status">Загрузка фильмов...</div>
-        }
     </div>
     
     <div class="mb-3">
         <label for="filmFormControlInput" class="form-label">Фильм:</label>
-        @if (_movieDto != null)
+        @if (_movieDto == null)
+        { 
+            <div role="status">Загрузка фильмов...</div>
+        }
+        else
         {
             <select required class="form-control" id="filmFormControlInput" rows="3" @bind="_newScreening.Movie.Id">
                 <option selected="" disabled="">Выберите фильм</option>
@@ -58,10 +62,6 @@
                     <option value="@movie.Id">Зал "@movie.Title"</option>
                 }
             </select>
-        }
-        else
-        {
-            <div role="status">Загрузка фильмов...</div>
         }
     </div>
     
@@ -79,13 +79,17 @@
 </form>
 
 @code {
-    private ScreeningDTO _newScreening = new ();
+    private ScreeningDTO _newScreening = new ()
+    {
+        Auditorium = new (),
+        Movie = new ()
+    };
     private AuditoriumDTO[]? _auditoriumDto;
     private MovieDTO[]? _movieDto;
 
     private string _errorMessage = string.Empty;
-    private DateOnly _dateInput = DateOnly.FromDateTime(DateTime.Now);
-    private TimeOnly _timeInput = TimeOnly.FromDateTime(DateTime.Now);
+    private DateOnly _dateInput = DateOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc));
+    private TimeOnly _timeInput = TimeOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc));
     
     protected override async Task OnInitializedAsync()
     {
@@ -96,14 +100,9 @@
         }
         else
         {
-            await LoadData();
+            _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]?>("Auditorium");
+            _movieDto = await Http.GetFromJsonAsync<MovieDTO[]?>("Movie");
         }
-    }
-
-    private async Task LoadData()
-    {
-        _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("Auditorium");
-        _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("Movie");
     }
     
     private async Task CreateNewCinema()

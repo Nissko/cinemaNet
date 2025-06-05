@@ -1,0 +1,207 @@
+﻿@page "/account"
+@using Cinema.Client.DTO.Ticket
+@using Cinema.Client.DTO.Seat
+@using Cinema.Client.DTO.Screening
+@using Cinema.Client.Services
+@using Cinema.Client.Services.JwtService
+@using System.Globalization
+@inject AuthService AuthService
+@inject JwtService JwtService
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+@if (_isLoading)
+{
+    <div class="text-center">
+        <span>Загрузка...</span>
+    </div>
+}
+else
+{
+    @if (HasAnyTickets())
+    {
+        <h4 class="text-center mb-4">Билеты за @_monthTitle</h4>
+    }
+    else
+    {
+        <h4 class="text-center mb-4">У Вас нет билетов в этом месяце!</h4>
+    }
+
+    @DisplayTicketsGrouped(_bookedTickets, "Требуют оплаты")
+    @DisplayTicketsGrouped(_buyedTickets, "Оплаченные билеты")
+    @DisplayTicketsGrouped(_canceledTickets, "Отмененные билеты")
+}
+
+@code {
+    private List<TicketDTO>? _buyedTickets = new();
+    private List<TicketDTO>? _bookedTickets = new();
+    private List<TicketDTO>? _canceledTickets = new();
+    private List<ScreeningDTO>? _allScreenings;
+    private List<SeatDTO>? _allSeats;
+    private string _monthTitle = "";
+
+    private bool HasAnyTickets()
+    {
+        return (_bookedTickets?.Any() ?? false) ||
+               (_buyedTickets?.Any() ?? false) ||
+               (_canceledTickets?.Any() ?? false);
+    }
+
+    private bool _isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var isAuthenticated = await AuthService.IsUserAuthenticated();
+        if (!isAuthenticated)
+        {
+            NavigationManager.NavigateTo("/login");
+        }
+        else
+        {
+            var userInfo = await JwtService.GetUserInfoFromToken();
+            await LoadData(userInfo.Email);
+        }
+    }
+
+    private async Task LoadData(string email)
+    {
+        _isLoading = true;
+
+        try
+        {
+            var allBuyedTickets = await Http.GetFromJsonAsync<List<TicketDTO>>($"Ticket/email/{email}/status/Purchased");
+            var allBookedTickets = await Http.GetFromJsonAsync<List<TicketDTO>>($"Ticket/email/{email}/status/Reserved");
+            var allCanceledTickets = await Http.GetFromJsonAsync<List<TicketDTO>>($"Ticket/email/{email}/status/Cancelled");
+
+            _allScreenings = (await Http.GetFromJsonAsync<List<ScreeningDTO>>("Screening")) ?? new List<ScreeningDTO>();
+
+            _allSeats = (await Http.GetFromJsonAsync<List<SeatDTO>>("Seat")) ?? new List<SeatDTO>();
+
+            var now = DateTime.Now;
+            var culture = new CultureInfo("ru-RU");
+            _monthTitle = now.ToString("MMMM yyyy", culture);
+
+            _buyedTickets = FilterTicketsByCurrentMonth(allBuyedTickets);
+            _bookedTickets = FilterTicketsByCurrentMonth(allBookedTickets);
+            _canceledTickets = FilterTicketsByCurrentMonth(allCanceledTickets);
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    private List<TicketDTO>? FilterTicketsByCurrentMonth(List<TicketDTO>? tickets)
+    {
+        if (tickets == null || _allScreenings == null) return null;
+
+        var currentMonth = DateTime.Now.Month;
+        var currentYear = DateTime.Now.Year;
+
+        return tickets
+            .Where(t =>
+            {
+                var screening = _allScreenings.FirstOrDefault(s => s.Id == t.ScreeningId);
+                return screening != null &&
+                       screening.StartTime.Month == currentMonth &&
+                       screening.StartTime.Year == currentYear;
+            })
+            .ToList();
+    }
+
+    private RenderFragment DisplayTicketsGrouped(List<TicketDTO>? tickets, string title) => __builder =>
+    {
+        if (tickets == null || !tickets.Any())
+        {
+            return;
+        }
+
+        var groupedTickets = tickets.GroupBy(t => t.ScreeningId);
+
+        foreach (var group in groupedTickets)
+        {
+            var screening = _allScreenings?.FirstOrDefault(s => s.Id == group.Key);
+            var firstTicket = group.First();
+            var totalGroupPrice = group.Sum(t => t.Price);
+
+            var screeningTime = screening != null
+                ? $"{screening.StartTime.ToString("dd MMMM yyyy", new CultureInfo("ru-RU"))} | {screening.StartTime:HH:mm}"
+                : "Неизвестно";
+
+            var movieTitle = screening?.Movie?.Title ?? "Неизвестный фильм";
+            var cinemaHall = screening?.Auditorium?.Number.ToString() ?? "Неизвестный зал";
+
+            var headerBgClass = firstTicket.Status switch
+            {
+                "Purchased" => "bg-success text-white",
+                "Reserved" => "bg-warning text-dark",
+                "Cancelled" => "bg-danger text-white",
+                _ => "bg-secondary"
+            };
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header @headerBgClass">
+                    <h5 class="card-title mb-0">@title</h5>
+                    <small>Фильм: @movieTitle</small><br/>
+                    <small>Дата и время: @screeningTime</small><br/>
+                    <small>Зал: @cinemaHall</small>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        @foreach (var ticket in group)
+                        {
+                            var seat = _allSeats?.FirstOrDefault(s => s.Id == ticket.SeatId);
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>Место:</strong> Ряд @seat?.RowNumber, место @seat?.SeatNumber<br/>
+                                    <strong>Цена:</strong> @ticket.Price ₽
+                                </div>
+                            </li>
+                        }
+                    </ul>
+
+                    @if (firstTicket.Status == "Reserved")
+                    {
+                        <div class="mt-3 text-end">
+                            <button class="btn btn-success btn-lg" @onclick="(() => PayTickets(group))">
+                                Оплатить всё
+                            </button>
+                        </div>
+                    }
+                    else if (firstTicket.Status == "Purchased")
+                    {
+                        <div class="mt-3 text-end">
+                            <span class="badge bg-success fs-6">Оплачен</span>
+                        </div>
+                    }
+                    else if (firstTicket.Status == "Cancelled")
+                    {
+                        <div class="mt-3 text-end">
+                            <span class="badge bg-danger fs-6">Отменён</span>
+                        </div>
+                    }
+
+                    <div class="mt-3 fw-bold text-end">
+                        Общая стоимость: @totalGroupPrice ₽
+                    </div>
+                </div>
+            </div>
+        }
+    };
+
+    private Task PayTickets(IGrouping<Guid, TicketDTO> group)
+    {
+        /*var ticketIds = group.Select(t => t.Id).ToList();
+        var response = await Http.PutAsJsonAsync("Ticket/pay-batch", ticketIds);
+
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/payment/success");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/payment/failure");
+        }*/
+        return Task.CompletedTask;
+    }
+}

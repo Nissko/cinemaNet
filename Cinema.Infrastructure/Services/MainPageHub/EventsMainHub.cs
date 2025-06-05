@@ -10,6 +10,6 @@ public class EventsMainHub : Hub
     public EventsMainHub(IEventsMainHubService eventsMainHubService) => 
         _eventsMainHubService = eventsMainHubService;
 
-    public async Task NotifySeatsUpdated() =>
-        await _eventsMainHubService.SendSeatsUpdateAsync();
+    public async Task NotifySeatsUpdated(Guid screeningId) =>
+        await _eventsMainHubService.SendSeatsUpdateAsync(screeningId);
 }

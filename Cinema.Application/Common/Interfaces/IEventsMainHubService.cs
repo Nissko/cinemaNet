@@ -2,5 +2,5 @@
 
 public interface IEventsMainHubService
 {
-    Task SendSeatsUpdateAsync();
+    Task SendSeatsUpdateAsync(Guid screeningId);
 }

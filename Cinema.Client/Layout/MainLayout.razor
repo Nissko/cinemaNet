@@ -15,7 +15,7 @@
             {
                 @if (!string.IsNullOrEmpty(userInfo?.Email))
                 {
-                    <span class="text-dark me-2 text-muted" title="Ваша почта">@userInfo.Email</span>
+                    <a href="/account" class="text-primary me-2 link-info" style="cursor: pointer;" title="Личный кабинет">@userInfo.Email</a>
                 }
                 <button class="btn btn-outline-danger btn-sm" @onclick="Logout">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">

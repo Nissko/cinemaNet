@@ -2,7 +2,7 @@ is_global = true
 build_property.EnableAotAnalyzer = 
 build_property.EnableSingleFileAnalyzer = 
 build_property.EnableTrimAnalyzer = false
-build_property.IncludeAllContentForSelfExtract = false
+build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -15,7 +15,7 @@ build_property.RootNamespace = Cinema.Client
 build_property.RootNamespace = Cinema.Client
 build_property.ProjectDir = C:\GitHubRepositories\cinemaNet\Cinema.Client\
 build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -102,12 +102,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50VGFic1xFdmVudHNcRXZlbnRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/ClientTabs/Events/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50VGFic1xFdmVudHNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/ClientTabs/Events/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50VGFic1xFdmVudHNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/ClientTabs/Events/PersonalAcc.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50VGFic1xFdmVudHNcUGVyc29uYWxBY2MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/Register.razor]

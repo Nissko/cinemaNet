@@ -8,10 +8,10 @@ public class EventsMainHubService : IEventsMainHubService
     private readonly IHubContext<EventsMainHub> _hubContext;
 
     public EventsMainHubService(IHubContext<EventsMainHub> hubContext) => 
-        _hubContext = hubContext;
+        _hubContext = hubContext ?? throw new ArgumentNullException(nameof(hubContext));
     
-    public async Task SendSeatsUpdateAsync()
+    public async Task SendSeatsUpdateAsync(Guid screeningId)
     {
-        await _hubContext.Clients.All.SendAsync("ReceiveSeatsUpdate");
+        await _hubContext.Clients.All.SendAsync("ReceiveSeatsUpdate", screeningId);
     }
 }

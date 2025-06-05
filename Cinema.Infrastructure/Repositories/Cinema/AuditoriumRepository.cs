@@ -29,7 +29,7 @@ public class AuditoriumRepository : IAuditoriumRepository
             RowsCount = a.RowsCount,
             SeatsPerRow = a.SeatsPerRow,
             CinemaId = a.CinemaId
-        });
+        }).OrderBy(a => a.Number);
     }
 
     public async Task<AuditoriumDto?> GetByIdAsync(Guid id)
@@ -59,7 +59,7 @@ public class AuditoriumRepository : IAuditoriumRepository
             RowsCount = a.RowsCount,
             SeatsPerRow = a.SeatsPerRow,
             CinemaId = a.CinemaId
-        });
+        }).OrderBy(a => a.Number);
     }
 
     public async Task<AuditoriumDto> CreateAsync(CreateAuditoriumDto dto)

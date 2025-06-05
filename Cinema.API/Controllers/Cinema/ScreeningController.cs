@@ -20,6 +20,12 @@ public class ScreeningController : ControllerBase
     {
         return Ok(await _screeningRepository.GetAllAsync());
     }
+    
+    [HttpGet("by-day/{date:datetime}")]
+    public async Task<ActionResult<IEnumerable<ScreeningDto>>> GetByDayAll(DateTime date)
+    {
+        return Ok(await _screeningRepository.GetByDayAsync(date));
+    }
 
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<ScreeningDto>> GetById(Guid id)

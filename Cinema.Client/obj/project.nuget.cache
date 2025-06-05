@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5aoiRAam1hw=",
+  "dgSpecHash": "VB6plpt5Fqc=",
   "success": true,
   "projectFilePath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\Cinema.Client.csproj",
   "expectedPackageFiles": [
@@ -47,8 +47,7 @@
     "C:\\Users\\niksk\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.10.0\\system.identitymodel.tokens.jwt.8.10.0.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\niksk\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
-    "C:\\Users\\niksk\\.nuget\\packages\\system.threading.channels\\8.0.0\\system.threading.channels.8.0.0.nupkg.sha512",
-    "C:\\Users\\niksk\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.16\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.16.nupkg.sha512"
+    "C:\\Users\\niksk\\.nuget\\packages\\system.threading.channels\\8.0.0\\system.threading.channels.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

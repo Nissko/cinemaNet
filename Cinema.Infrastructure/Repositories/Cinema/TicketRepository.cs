@@ -33,6 +33,30 @@ public class TicketRepository : ITicketRepository
         });
     }
 
+    public async Task<IEnumerable<TicketDto>> GetByEmailAndStatus(string email, TicketStatus statusText)
+    {
+        var user = _context.User.FirstOrDefault(u => u.Email == email);
+        if (user == null)
+            return [];
+
+        var ticket = await _context.Ticket
+            .Where(t => t.Status == statusText &&
+                        t.UserId == user.Id && 
+                        t.PurchaseDate.Month == DateTime.Now.Month &&
+                        t.PurchaseDate.Year == DateTime.Now.Year)
+            .ToListAsync();
+
+        return ticket.Select(t => new TicketDto
+        {
+            Id = t.Id,
+            PurchaseDate = t.PurchaseDate,
+            Status = t.Status.ToString(),
+            Price = t.Price,
+            ScreeningId = t.ScreeningId,
+            SeatId = t.SeatId,
+        });
+    }
+
     public async Task<TicketDto?> GetByIdAsync(Guid id)
     {
         var ticket = await _context.Ticket.FirstOrDefaultAsync(t => t.Id == id);
@@ -80,7 +104,7 @@ public class TicketRepository : ITicketRepository
                 var seats = await _context.Seat.FirstOrDefaultAsync(t => t.Id == seatsId);
                 if (seats == null) throw new ArgumentException("Место не найдено");
 
-                var tickets = new TicketEntity(DateTime.Now.ToUniversalTime(), TicketStatus.Reserved, price,
+                var tickets = new TicketEntity(DateTime.UtcNow, TicketStatus.Reserved, price,
                     dto.ScreeningId,
                     seatsId, user.Id);
 
@@ -90,7 +114,7 @@ public class TicketRepository : ITicketRepository
             await _context.Ticket.AddRangeAsync(newTickets);
             await _context.SaveChangesAsync(CancellationToken.None);
 
-            await _eventsMainHubService.SendSeatsUpdateAsync();
+            await _eventsMainHubService.SendSeatsUpdateAsync(dto.ScreeningId);
             return newTickets.Select(t => t.SeatId).ToList();
         }
 
@@ -98,13 +122,13 @@ public class TicketRepository : ITicketRepository
         var seat = await _context.Seat.FirstOrDefaultAsync(t => t.Id == seatId);
         if (seat == null) throw new ArgumentException("Место не найдено");
 
-        var ticket = new TicketEntity(DateTime.Now.ToUniversalTime(), TicketStatus.Reserved, price, dto.ScreeningId,
+        var ticket = new TicketEntity(DateTime.UtcNow, TicketStatus.Reserved, price, dto.ScreeningId,
             seatId, user.Id);
 
         await _context.Ticket.AddAsync(ticket);
         await _context.SaveChangesAsync(CancellationToken.None);
 
-        await _eventsMainHubService.SendSeatsUpdateAsync();
+        await _eventsMainHubService.SendSeatsUpdateAsync(dto.ScreeningId);
         return [ticket.Id];
     }
 
@@ -121,7 +145,7 @@ public class TicketRepository : ITicketRepository
         return new TicketDto
         {
             Id = ticket.Id,
-            PurchaseDate = ticket.PurchaseDate,
+            PurchaseDate = ticket.PurchaseDate.ToUniversalTime(),
             Status = ticket.Status.ToString(),
             Price = ticket.Price,
             ScreeningId = ticket.ScreeningId,

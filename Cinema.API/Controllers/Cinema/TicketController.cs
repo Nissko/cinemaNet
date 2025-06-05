@@ -1,5 +1,6 @@
 ﻿using Cinema.Application.Application.Interfaces.Cinema;
 using Cinema.Application.DTO.Ticket;
+using Cinema.Domain.Aggregates.Cinemas;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.API.Controllers.Cinema;
@@ -20,6 +21,16 @@ public class TicketController : ControllerBase
     {
         return Ok(await _ticketRepository.GetAllAsync());
     }
+    
+    [HttpGet("email/{email}/status/{statusText}")]
+    public async Task<ActionResult<IEnumerable<TicketDto>>> GetByEmailAndStatus(string email, string statusText)
+    {
+        if (!Enum.TryParse<TicketStatus>(statusText, true, out var statusEnum))
+            return BadRequest(
+                $"Invalid status. Valid values are: {string.Join(", ", Enum.GetNames(typeof(TicketStatus)))}");
+
+        return Ok(await _ticketRepository.GetByEmailAndStatus(email, statusEnum));
+    }
 
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<TicketDto>> GetById(Guid id)
@@ -28,6 +39,9 @@ public class TicketController : ControllerBase
         return ticket is null ? NotFound() : Ok(ticket);
     }
     
+    /// <summary>
+    /// Метод для получения занятых мест через билеты
+    /// </summary>
     [HttpGet("by-screening/{screeningId:guid}")]
     public async Task<ActionResult<IEnumerable<TicketDto>>> GetScreeningId(Guid screeningId)
     {
@@ -45,6 +59,9 @@ public class TicketController : ControllerBase
         return ticket.Count == 0 ? new List<Guid>() : Ok(ticket);
     }
 
+    /// <summary>
+    /// Покупка
+    /// </summary>
     [HttpPost("purchase")]
     public async Task<ActionResult<TicketDto>> PurchaseTicket([FromBody] PurchaseTicketDto dto)
     {

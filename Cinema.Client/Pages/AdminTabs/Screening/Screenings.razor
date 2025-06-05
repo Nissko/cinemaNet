@@ -86,7 +86,7 @@ else if (_screeningList.Count == 0)
     {
         _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>("Screening");
 
-        var today = DateTime.Today.ToUniversalTime();
+        var today = DateTime.Today;
         var startDate = today.AddDays(-14);
 
         _allScreenings = _allScreenings?
