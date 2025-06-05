@@ -1,10 +1,7 @@
 {
   "mainAssemblyName": "Cinema.Client",
   "resources": {
-    "hash": "sha256-6Awgi+Xr0AHhp3TiroNpy18enXcqW+s2xr5Jkl9KvcY=",
-    "jsModuleWorker": {
-      "dotnet.native.worker.8.0.16.gs5tn2de6g.js": "sha256-sUa+5V6IoPWbaiTWPfjsPYYyDteEZnwNTlaRwRGRMY0="
-    },
+    "hash": "sha256-iYwElVKsNmZjt+osj9MadmiHXwpjPEpqKsfvnsc5/gY=",
     "jsModuleNative": {
       "dotnet.native.8.0.16.bd82ewcnag.js": "sha256-j5Y5WdUukow8tp2MFri/EUFla3yTcg79T/1US6vuCyg="
     },
@@ -226,10 +223,10 @@
       "mscorlib.wasm": "sha256-Im6xq+lOse4P/VnAyrA3hwPstV67V5dB0EwQWcjipyE=",
       "netstandard.wasm": "sha256-PK0GLtj6kQVtZPzq0FZlnSdHh7geujg80LqKdJXA4pI=",
       "System.Private.CoreLib.wasm": "sha256-gEwccs7GbRSPGmeWBOKxNroYfyM+mZ7hqbP3ki1iwX0=",
-      "Cinema.Client.wasm": "sha256-sGPZRZk9hdemkqWZ13C8//9UxU6MBA4TofGQluSA9R0="
+      "Cinema.Client.wasm": "sha256-LdPD96zdKLKtffNwceRazJ9QjH2Hur+SqxE7zwf8iXU="
     },
     "pdb": {
-      "Cinema.Client.pdb": "sha256-ekVwQO4gsoSYo1KQeLJLl+R15FwICZmGJjd0eqw65ss="
+      "Cinema.Client.pdb": "sha256-msosUfiWSNDfU0d28LDhNdwISRIpq0H52+VkK0TqOLo="
     }
   },
   "cacheBootResources": true,

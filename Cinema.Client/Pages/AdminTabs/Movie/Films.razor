@@ -92,7 +92,7 @@
     {
         //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/api/hub/moviehub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("https://aib-cinema.ru/api/hub/moviehub"))
             .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/hub/moviehub"))
             .Build();
         

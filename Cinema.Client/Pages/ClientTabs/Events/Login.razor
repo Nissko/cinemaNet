@@ -21,7 +21,7 @@
                 </div>
 
                 <button class="btn btn-primary w-100" @onclick="HandleLogin">Войти</button>
-                <button class="btn btn-primary w-100 mt-sm-2" @onclick="HandleLogin">Зарегистрироваться</button>
+                <a class="btn btn-primary w-100 mt-sm-2" href="/register">Зарегистрироваться</a>
 
                 @if (!string.IsNullOrEmpty(ErrorMessage))
                 {

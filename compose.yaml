@@ -21,3 +21,9 @@
       - "5000:80"
     restart: unless-stopped
 
+  mailservice.api:
+    image: mailservice.api
+    build:
+      context: .
+      dockerfile: MailService.API/Dockerfile
+

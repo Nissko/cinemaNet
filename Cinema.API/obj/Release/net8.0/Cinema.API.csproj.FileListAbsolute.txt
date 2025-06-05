@@ -115,8 +115,8 @@ C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Application
 C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Domain.dll
 C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Infrastructure.dll
 C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Application.pdb
-C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Domain.pdb
 C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Infrastructure.pdb
+C:\GitHubRepositories\cinemaNet\Cinema.API\bin\Release\net8.0\Cinema.Domain.pdb
 C:\GitHubRepositories\cinemaNet\Cinema.API\obj\Release\net8.0\Cinema.API.csproj.AssemblyReference.cache
 C:\GitHubRepositories\cinemaNet\Cinema.API\obj\Release\net8.0\Cinema.API.GeneratedMSBuildEditorConfig.editorconfig
 C:\GitHubRepositories\cinemaNet\Cinema.API\obj\Release\net8.0\Cinema.API.AssemblyInfoInputs.cache

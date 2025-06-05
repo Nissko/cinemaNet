@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Cinema.Client.DTO.Ticket;
-
-internal record PurchaseTicketDTO
+namespace Cinema.Client.DTO.Ticket
 {
-    [Required]
-    public Guid TicketId { get; set; }
+    internal record PurchaseTicketDTO
+    {
+        [Required]
+        public Guid TicketId { get; set; }
 
-    [Required]
-    [CreditCard]
-    public string PaymentCardNumber { get; set; } = string.Empty;
-};
+        [Required]
+        [CreditCard]
+        public string PaymentCardNumber { get; set; } = string.Empty;
+    };
+}

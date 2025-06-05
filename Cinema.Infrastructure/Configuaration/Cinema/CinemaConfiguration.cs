@@ -1,15 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Cinema.Infrastructure.Configuaration.Cinema;
-
-public class CinemaConfiguration : IEntityTypeConfiguration<Domain.Aggregates.Cinemas.CinemaEntity>
+namespace Cinema.Infrastructure.Configuaration.Cinema
 {
-    public void Configure(EntityTypeBuilder<Domain.Aggregates.Cinemas.CinemaEntity> builder)
+    public class CinemaConfiguration : IEntityTypeConfiguration<Domain.Aggregates.Cinemas.CinemaEntity>
     {
-        builder.ToTable("Cinemas");
-        builder.HasKey(c => c.Id);
-        builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
-        builder.Property(c => c.Address).IsRequired().HasMaxLength(200);
+        public void Configure(EntityTypeBuilder<Domain.Aggregates.Cinemas.CinemaEntity> builder)
+        {
+            builder.ToTable("Cinemas");
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
+            builder.Property(c => c.Address).IsRequired().HasMaxLength(200);
+        }
     }
 }

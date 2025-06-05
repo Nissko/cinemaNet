@@ -15,6 +15,10 @@ using Microsoft.IdentityModel.Tokens;
 ContainerBuilder build = new ContainerBuilder();
 //build.RegisterModule(new ApplicationModule());
 
+build.RegisterType<HttpClient>()
+    .As<HttpClient>()
+    .InstancePerLifetimeScope();
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddResponseCompression(options =>
@@ -57,7 +61,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowWebAssemblyApp", policy =>
     {
         //TODO: указание Dev/Host
-        //policy.WithOrigins("http://aib-cinema.ru/")
+        //policy.WithOrigins("https://aib-cinema.ru/")
         policy.WithOrigins("http://localhost:5249")
             .AllowAnyMethod()
             .AllowAnyHeader()
@@ -93,7 +97,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseCors("AllowWebAssemblyApp");
 app.UseAuthorization();
 
@@ -101,7 +105,6 @@ app.UseWebSockets();
 
 // Регистрация контроллеров и хаба
 //TODO: указание Dev/Host
-
 //app.MapControllers();
 app.MapControllers().WithDisplayName("/api/[controller]");
 app.MapHub<MovieHub>("/hub/movieHub");

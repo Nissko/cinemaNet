@@ -1,24 +1,4 @@
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.deps.json
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.runtimeconfig.json
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.dll
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.pdb
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Application.dll
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Domain.dll
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Application.pdb
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Domain.pdb
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.csproj.AssemblyReference.cache
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.AssemblyInfoInputs.cache
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.AssemblyInfo.cs
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.csproj.CoreCompileInputs.cache
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.I.121B45F8.Up2Date
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.dll
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\refint\Cinema.Infrastructure.dll
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.pdb
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.genruntimeconfig.cache
-C:\UniversityFiles\VYZ С#\cinema_csharp_project\cinema_project\Cinema.Infrastructure\obj\Debug\net8.0\ref\Cinema.Infrastructure.dll
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.deps.json
-C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.runtimeconfig.json
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.dll
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.pdb
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Application.dll
@@ -35,5 +15,6 @@ C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.I.
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.dll
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\refint\Cinema.Infrastructure.dll
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.pdb
-C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.genruntimeconfig.cache
 C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\ref\Cinema.Infrastructure.dll
+C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\bin\Debug\net8.0\Cinema.Infrastructure.runtimeconfig.json
+C:\GitHubRepositories\cinemaNet\Cinema.Infrastructure\obj\Debug\net8.0\Cinema.Infrastructure.genruntimeconfig.cache

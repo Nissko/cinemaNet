@@ -1,9 +1,10 @@
-﻿namespace Cinema.Client.DTO.Screening;
-
-internal record UpdateScreeningDTO
+﻿namespace Cinema.Client.DTO.Screening
 {
-    public DateTime StartTime { get; set; }
-    public Guid MovieId { get; set; }
-    public Guid AuditoriumId { get; set; }
-    public decimal Price { get; set; }
+    internal record UpdateScreeningDTO
+    {
+        public DateTime StartTime { get; set; }
+        public Guid MovieId { get; set; }
+        public Guid AuditoriumId { get; set; }
+        public decimal Price { get; set; }
+    }
 }

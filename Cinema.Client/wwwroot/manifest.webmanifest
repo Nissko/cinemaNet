@@ -1,6 +1,6 @@
 {
-  "name": "Cinema.Client",
-  "short_name": "Cinema.Client",
+  "name": "Твое Кино",
+  "short_name": "Твое Кино",
   "id": "./",
   "start_url": "./",
   "display": "standalone",

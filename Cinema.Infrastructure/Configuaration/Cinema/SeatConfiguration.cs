@@ -2,24 +2,25 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Cinema.Infrastructure.Configuaration.Cinema;
-
-public class SeatConfiguration : IEntityTypeConfiguration<SeatEntity>
+namespace Cinema.Infrastructure.Configuaration.Cinema
 {
-    public void Configure(EntityTypeBuilder<SeatEntity> builder)
+    public class SeatConfiguration : IEntityTypeConfiguration<SeatEntity>
     {
-        builder.ToTable("Seats");
-        builder.HasKey(s => s.Id);
+        public void Configure(EntityTypeBuilder<SeatEntity> builder)
+        {
+            builder.ToTable("Seats");
+            builder.HasKey(s => s.Id);
 
-        builder.Property(s => s.RowNumber).IsRequired();
-        builder.Property(s => s.SeatNumber).IsRequired();
+            builder.Property(s => s.RowNumber).IsRequired();
+            builder.Property(s => s.SeatNumber).IsRequired();
         
-        builder.Property(s => s.Type)
-            .HasConversion<string>()
-            .HasColumnName("Type");
+            builder.Property(s => s.Type)
+                .HasConversion<string>()
+                .HasColumnName("Type");
 
-        builder.HasOne(s => s.AuditoriumEntity)
-            .WithMany(a => a.Seats)
-            .HasForeignKey(s => s.AuditoriumId);
+            builder.HasOne(s => s.AuditoriumEntity)
+                .WithMany(a => a.Seats)
+                .HasForeignKey(s => s.AuditoriumId);
+        }
     }
 }

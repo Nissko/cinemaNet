@@ -2,19 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Cinema.Infrastructure.Configuaration.Cinema;
-
-public class AuditoriumConfiguration : IEntityTypeConfiguration<AuditoriumEntity>
+namespace Cinema.Infrastructure.Configuaration.Cinema
 {
-    public void Configure(EntityTypeBuilder<AuditoriumEntity> builder)
+    public class AuditoriumConfiguration : IEntityTypeConfiguration<AuditoriumEntity>
     {
-        builder.ToTable("Auditoriums");
-        builder.HasKey(a => a.Id);
-        builder.Property(a => a.Number).IsRequired();
-        builder.HasIndex(a => a.Number).IsUnique();
+        public void Configure(EntityTypeBuilder<AuditoriumEntity> builder)
+        {
+            builder.ToTable("Auditoriums");
+            builder.HasKey(a => a.Id);
+            builder.Property(a => a.Number).IsRequired();
+            builder.HasIndex(a => a.Number).IsUnique();
 
-        builder.HasOne(a => a.CinemaEntity)
-            .WithMany(c => c.Auditoriums)
-            .HasForeignKey(a => a.CinemaId);
+            builder.HasOne(a => a.CinemaEntity)
+                .WithMany(c => c.Auditoriums)
+                .HasForeignKey(a => a.CinemaId);
+        }
     }
 }

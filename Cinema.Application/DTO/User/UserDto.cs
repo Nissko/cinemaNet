@@ -1,8 +1,9 @@
-﻿namespace Cinema.Application.DTO.User;
-
-public record UserDto
+﻿namespace Cinema.Application.DTO.User
 {
-    public Guid Id { get; set; }
-    public string Email { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
-};
+    public record UserDto
+    {
+        public Guid Id { get; set; }
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    };
+}

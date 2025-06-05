@@ -3770,7 +3770,6 @@
       "Autofac.Extensions.DependencyInjection >= 10.0.0",
       "BCrypt.Net-Core >= 1.6.0",
       "Cinema.Application >= 1.0.0",
-      "Cinema.Domain >= 1.0.0",
       "Cinema.Infrastructure >= 1.0.0",
       "MediatR >= 12.5.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.0",
@@ -3816,9 +3815,6 @@
           "projectReferences": {
             "C:\\GitHubRepositories\\cinemaNet\\Cinema.Application\\Cinema.Application.csproj": {
               "projectPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Application\\Cinema.Application.csproj"
-            },
-            "C:\\GitHubRepositories\\cinemaNet\\Cinema.Domain\\Cinema.Domain.csproj": {
-              "projectPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Domain\\Cinema.Domain.csproj"
             },
             "C:\\GitHubRepositories\\cinemaNet\\Cinema.Infrastructure\\Cinema.Infrastructure.csproj": {
               "projectPath": "C:\\GitHubRepositories\\cinemaNet\\Cinema.Infrastructure\\Cinema.Infrastructure.csproj"

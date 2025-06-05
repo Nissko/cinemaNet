@@ -25,7 +25,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Cinema.Application\Cinema.Application.csproj" />
-      <ProjectReference Include="..\Cinema.Domain\Cinema.Domain.csproj" />
       <ProjectReference Include="..\Cinema.Infrastructure\Cinema.Infrastructure.csproj" />
     </ItemGroup>
 

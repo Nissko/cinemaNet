@@ -1,6 +1,7 @@
-﻿namespace Cinema.Application.Common.Interfaces;
-
-public interface IEventsMainHubService
+﻿namespace Cinema.Application.Common.Interfaces
 {
-    Task SendSeatsUpdateAsync(Guid screeningId);
+    public interface IEventsMainHubService
+    {
+        Task SendSeatsUpdateAsync(Guid screeningId);
+    }
 }

@@ -366,7 +366,7 @@ else
     {
         //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            //.WithUrl(NavigationManager.ToAbsoluteUri("http://aib-cinema.ru/api/hub/eventsMainHub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("https://aib-cinema.ru/api/hub/eventsMainHub"))
             .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/hub/eventsMainHub"))
             .Build();
 

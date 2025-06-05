@@ -2,58 +2,59 @@
 using Cinema.Application.DTO.Cinema;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cinema.API.Controllers.Cinema;
-
-[ApiController]
-[Route("[controller]")]
-public class CinemaController : ControllerBase
+namespace Cinema.API.Controllers.Cinema
 {
-    private readonly ICinemaRepository _cinemaRepository;
-
-    public CinemaController(ICinemaRepository cinemaRepository)
+    [ApiController]
+    [Route("[controller]")]
+    public class CinemaController : ControllerBase
     {
-        _cinemaRepository = cinemaRepository ?? throw new ArgumentNullException(nameof(cinemaRepository));
-    }
+        private readonly ICinemaRepository _cinemaRepository;
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<CinemaDto>>> GetAll()
-    {
-        return Ok(await _cinemaRepository.GetAllAsync());
-    }
+        public CinemaController(ICinemaRepository cinemaRepository)
+        {
+            _cinemaRepository = cinemaRepository ?? throw new ArgumentNullException(nameof(cinemaRepository));
+        }
 
-    [HttpGet("{id:guid}")]
-    public async Task<ActionResult<CinemaDto>> GetById(Guid id)
-    {
-        var cinema = await _cinemaRepository.GetByIdAsync(id);
-        return cinema is null ? NotFound() : Ok(cinema);
-    }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<CinemaDto>>> GetAll()
+        {
+            return Ok(await _cinemaRepository.GetAllAsync());
+        }
 
-    [HttpPost]
-    public async Task<ActionResult<CinemaDto>> Create([FromBody] CreateCinemaDto dto)
-    {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
-        var created = await _cinemaRepository.CreateAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-    }
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<CinemaDto>> GetById(Guid id)
+        {
+            var cinema = await _cinemaRepository.GetByIdAsync(id);
+            return cinema is null ? NotFound() : Ok(cinema);
+        }
 
-    [HttpPut("{id:guid}")]
-    public async Task<IActionResult> Update(Guid id, [FromBody] UpdateCinemaDto dto)
-    {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
-        var updated = await _cinemaRepository.UpdateAsync(id, dto);
-        return updated ? NoContent() : NotFound();
-    }
+        [HttpPost]
+        public async Task<ActionResult<CinemaDto>> Create([FromBody] CreateCinemaDto dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var created = await _cinemaRepository.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+        }
 
-    [HttpDelete("{id:Guid}")]
-    public async Task<IActionResult> Delete(Guid id)
-    {
-        var deleted = await _cinemaRepository.DeleteAsync(id);
-        return deleted ? NoContent() : NotFound();
-    }
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateCinemaDto dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var updated = await _cinemaRepository.UpdateAsync(id, dto);
+            return updated ? NoContent() : NotFound();
+        }
 
-    [HttpGet("search")]
-    public async Task<ActionResult<IEnumerable<CinemaDto>>> Search(string name)
-    {
-        return Ok(await _cinemaRepository.SearchByNameAsync(name));
+        [HttpDelete("{id:Guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var deleted = await _cinemaRepository.DeleteAsync(id);
+            return deleted ? NoContent() : NotFound();
+        }
+
+        [HttpGet("search")]
+        public async Task<ActionResult<IEnumerable<CinemaDto>>> Search(string name)
+        {
+            return Ok(await _cinemaRepository.SearchByNameAsync(name));
+        }
     }
 }

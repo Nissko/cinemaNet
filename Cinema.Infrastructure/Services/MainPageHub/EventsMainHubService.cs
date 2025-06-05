@@ -1,17 +1,18 @@
 ﻿using Cinema.Application.Common.Interfaces;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Cinema.Infrastructure.Services.MainPageHub;
-
-public class EventsMainHubService : IEventsMainHubService
+namespace Cinema.Infrastructure.Services.MainPageHub
 {
-    private readonly IHubContext<EventsMainHub> _hubContext;
-
-    public EventsMainHubService(IHubContext<EventsMainHub> hubContext) => 
-        _hubContext = hubContext ?? throw new ArgumentNullException(nameof(hubContext));
-    
-    public async Task SendSeatsUpdateAsync(Guid screeningId)
+    public class EventsMainHubService : IEventsMainHubService
     {
-        await _hubContext.Clients.All.SendAsync("ReceiveSeatsUpdate", screeningId);
+        private readonly IHubContext<EventsMainHub> _hubContext;
+
+        public EventsMainHubService(IHubContext<EventsMainHub> hubContext) => 
+            _hubContext = hubContext ?? throw new ArgumentNullException(nameof(hubContext));
+    
+        public async Task SendSeatsUpdateAsync(Guid screeningId)
+        {
+            await _hubContext.Clients.All.SendAsync("ReceiveSeatsUpdate", screeningId);
+        }
     }
 }

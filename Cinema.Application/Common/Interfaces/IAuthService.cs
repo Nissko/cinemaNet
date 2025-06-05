@@ -1,8 +1,9 @@
 ﻿using Cinema.Domain.Aggregates.Users;
 
-namespace Cinema.Application.Common.Interfaces;
-
-public interface IAuthService
+namespace Cinema.Application.Common.Interfaces
 {
-    string GenerateJwtToken(UserEntity user);
+    public interface IAuthService
+    {
+        string GenerateJwtToken(UserEntity user);
+    }
 }

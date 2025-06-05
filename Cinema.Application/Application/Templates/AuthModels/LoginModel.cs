@@ -1,7 +1,8 @@
-﻿namespace Cinema.Application.Application.Templates.AuthModels;
-
-public class LoginModel
+﻿namespace Cinema.Application.Application.Templates.AuthModels
 {
-    public string Email { get; set; }
-    public string Password { get; set; }
+    public class LoginModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
 }

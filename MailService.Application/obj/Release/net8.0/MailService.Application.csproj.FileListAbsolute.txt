@@ -1,0 +1,16 @@
+C:\GitHubRepositories\cinemaNet\MailService.Application\bin\Release\net8.0\MailService.Application.deps.json
+C:\GitHubRepositories\cinemaNet\MailService.Application\bin\Release\net8.0\MailService.Application.dll
+C:\GitHubRepositories\cinemaNet\MailService.Application\bin\Release\net8.0\MailService.Application.pdb
+C:\GitHubRepositories\cinemaNet\MailService.Application\bin\Release\net8.0\MailService.Domain.dll
+C:\GitHubRepositories\cinemaNet\MailService.Application\bin\Release\net8.0\MailService.Domain.pdb
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.csproj.AssemblyReference.cache
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.AssemblyInfoInputs.cache
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.AssemblyInfo.cs
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.csproj.CoreCompileInputs.cache
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.sourcelink.json
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailServ.96F5C22C.Up2Date
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.dll
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\refint\MailService.Application.dll
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\MailService.Application.pdb
+C:\GitHubRepositories\cinemaNet\MailService.Application\obj\Release\net8.0\ref\MailService.Application.dll

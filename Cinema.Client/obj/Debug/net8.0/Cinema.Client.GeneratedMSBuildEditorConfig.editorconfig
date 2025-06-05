@@ -114,8 +114,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50VGFic1xFdmVudHNcUGVyc29uYWxBY2MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
+[C:/GitHubRepositories/cinemaNet/Cinema.Client/Pages/ClientTabs/Events/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50VGFic1xFdmVudHNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/GitHubRepositories/cinemaNet/Cinema.Client/_Imports.razor]

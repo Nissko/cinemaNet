@@ -1,7 +1,8 @@
-﻿namespace Cinema.Client.DTO.Seat;
-
-internal enum SeatType
+﻿namespace Cinema.Client.DTO.Seat
 {
-    Regular,
-    VIP
+    internal enum SeatType
+    {
+        Regular,
+        VIP
+    }
 }

@@ -1,19 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Cinema.Application.DTO.Screening;
-
-public record CreateScreeningDto
+namespace Cinema.Application.DTO.Screening
 {
-    [Required]
-    public DateTime StartTime { get; set; }
+    public record CreateScreeningDto
+    {
+        [Required]
+        public DateTime StartTime { get; set; }
 
-    [Required]
-    public Guid MovieId { get; set; }
+        [Required]
+        public Guid MovieId { get; set; }
 
-    [Required]
-    public Guid AuditoriumId { get; set; }
+        [Required]
+        public Guid AuditoriumId { get; set; }
     
-    [Required]
-    [Range(100, 1000, ErrorMessage = "Цена должна быть в диапазоне от {1} до {2}")]
-    public decimal Price { get; set; }
-};
+        [Required]
+        [Range(100, 1000, ErrorMessage = "Цена должна быть в диапазоне от {1} до {2}")]
+        public decimal Price { get; set; }
+    };
+}
