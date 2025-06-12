@@ -108,8 +108,8 @@ else
             _auditoriumDto = await Http.GetFromJsonAsync<AuditoriumDTO[]>("Auditorium");
             _movieDto = await Http.GetFromJsonAsync<MovieDTO[]>("Movie");
         
-            _dateInput = DateOnly.FromDateTime(_screening.StartTime);
-            _timeInput = TimeOnly.FromDateTime(_screening.StartTime);
+            _dateInput = DateOnly.FromDateTime(DateTime.Parse(_screening.StartTime.ToString()));
+            _timeInput = TimeOnly.FromDateTime(DateTime.Parse(_screening.StartTime.ToString()));
         }
     }
     
@@ -118,7 +118,7 @@ else
         var dateTimeFromInputs = new DateTime(_dateInput, _timeInput);
         var updateAuditoriumDto = new UpdateScreeningDTO
         {
-            StartTime = DateTime.SpecifyKind(dateTimeFromInputs, DateTimeKind.Utc),
+            StartTime = dateTimeFromInputs.ToUniversalTime(),
             MovieId = _screening.Movie.Id,
             AuditoriumId = _screening.Auditorium.Id,
             Price = _screening.Price

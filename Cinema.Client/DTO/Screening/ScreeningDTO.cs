@@ -6,7 +6,7 @@ namespace Cinema.Client.DTO.Screening
     internal record ScreeningDTO
     {
         public Guid Id { get; init; }
-        public DateTime StartTime { get; set; } = DateTime.Now;
+        public DateTimeOffset StartTime { get; set; } = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5));
         public TimeSpan Duration { get; init; }
         public decimal Price { get; set; }
         public MovieDTO Movie { get; init; }

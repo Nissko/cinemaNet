@@ -47,7 +47,7 @@ namespace Cinema.Infrastructure.Repositories.Cinema
             }).OrderBy(s => s.StartTime);
         }
     
-        public async Task<IEnumerable<ScreeningDto>> GetByDayAsync(DateTime date)
+        public async Task<IEnumerable<ScreeningDto>> GetByDayAsync(DateTimeOffset date)
         {
             var screenings = await _context.Screening
                 .Where(t => t.StartTime.Day == date.Month && t.StartTime.Day == date.Month && t.StartTime.Year == date.Year)
@@ -191,13 +191,13 @@ namespace Cinema.Infrastructure.Repositories.Cinema
                 .Where(s => 
                     (newStartTime < s.StartTime.AddMinutes(s.MovieEntity.Duration.TotalMinutes) && 
                      newEndTime > s.StartTime))
-                .Where(s=>s.MovieId != dto.MovieId)
+                .Where(s=>s.Id != id)
                 .AnyAsync();
 
             if (conflictValid)
                 throw new Exception("Показ пересекается по времени с другим в этом зале");
 
-            screening.Update(dto.StartTime, dto.MovieId, dto.AuditoriumId, dto.Price);
+            screening.Update(newStartTime, dto.MovieId, dto.AuditoriumId, dto.Price);
 
             _context.Screening.Update(screening);
             await _context.SaveChangesAsync(CancellationToken.None);

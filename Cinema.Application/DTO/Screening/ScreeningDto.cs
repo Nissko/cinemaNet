@@ -6,7 +6,7 @@ namespace Cinema.Application.DTO.Screening
     public record ScreeningDto
     {
         public Guid Id { get; init; }
-        public DateTime StartTime { get; init; }
+        public DateTimeOffset StartTime { get; init; }
         public TimeSpan Duration { get; init; }
         public decimal Price { get; init; }
         public MovieDto Movie { get; init; }

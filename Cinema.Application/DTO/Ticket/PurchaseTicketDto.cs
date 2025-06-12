@@ -8,10 +8,9 @@ namespace Cinema.Application.DTO.Ticket
     public record PurchaseTicketDto
     {
         [Required]
-        public Guid TicketId { get; set; }
-
+        public List<Guid>? TicketId { get; init; }
+        
         [Required]
-        [CreditCard]
-        public string PaymentCardNumber { get; set; } = string.Empty;
+        public string ToUserEmail { get; init; }
     };
 }

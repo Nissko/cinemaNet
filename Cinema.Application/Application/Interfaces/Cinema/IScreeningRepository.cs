@@ -5,7 +5,7 @@ namespace Cinema.Application.Application.Interfaces.Cinema
     public interface IScreeningRepository
     {
         Task<IEnumerable<ScreeningDto>> GetAllAsync();
-        Task<IEnumerable<ScreeningDto>> GetByDayAsync(DateTime date);
+        Task<IEnumerable<ScreeningDto>> GetByDayAsync(DateTimeOffset date);
         Task<ScreeningDto?> GetByIdAsync(Guid id);
         Task<ScreeningDto> CreateAsync(CreateScreeningDto dto);
         Task<bool> UpdateAsync(Guid id, UpdateScreeningDto dto);

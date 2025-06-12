@@ -5,10 +5,9 @@ namespace Cinema.Client.DTO.Ticket
     internal record PurchaseTicketDTO
     {
         [Required]
-        public Guid TicketId { get; set; }
-
+        public List<Guid>? TicketId { get; init; }
+        
         [Required]
-        [CreditCard]
-        public string PaymentCardNumber { get; set; } = string.Empty;
+        public string ToUserEmail { get; init; }
     };
 }

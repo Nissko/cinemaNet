@@ -12,7 +12,7 @@ namespace Cinema.Domain.Aggregates.Cinemas
             Tickets = new HashSet<TicketEntity>();
         }
 
-        public ScreeningEntity(DateTime startTime, Guid movieId, Guid auditoriumId, TimeSpan duration, decimal price) : this()
+        public ScreeningEntity(DateTimeOffset startTime, Guid movieId, Guid auditoriumId, TimeSpan duration, decimal price) : this()
         {
             StartTime = startTime;
             MovieId = movieId;
@@ -21,7 +21,7 @@ namespace Cinema.Domain.Aggregates.Cinemas
             Price = price;
         }
 
-        public DateTime StartTime { get; private set; }
+        public DateTimeOffset StartTime { get; private set; }
         public TimeSpan Duration;
         public Guid AuditoriumId { get; private set; }
         public virtual AuditoriumEntity AuditoriumEntity { get; private set; }
@@ -30,7 +30,7 @@ namespace Cinema.Domain.Aggregates.Cinemas
         public virtual MovieEntity MovieEntity { get; private set; }
         public virtual ICollection<TicketEntity> Tickets { get; private set; }
 
-        public void Update(DateTime? startTime, Guid? movieId, Guid? auditoriumId, Decimal? price)
+        public void Update(DateTimeOffset? startTime, Guid? movieId, Guid? auditoriumId, Decimal? price)
         {
             StartTime = startTime ?? StartTime;
             MovieId = movieId ?? MovieId;

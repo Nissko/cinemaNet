@@ -5,7 +5,7 @@ namespace Cinema.Application.DTO.Screening
     public record CreateScreeningDto
     {
         [Required]
-        public DateTime StartTime { get; set; }
+        public DateTimeOffset StartTime { get; set; }
 
         [Required]
         public Guid MovieId { get; set; }

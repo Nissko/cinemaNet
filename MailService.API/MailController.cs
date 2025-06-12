@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MailService.API
 {
-    [Microsoft.AspNetCore.Components.Route("api/mail/[controller]")]
+    [Microsoft.AspNetCore.Components.Route("api/mail")]
     [ApiController]
     public class MailController : ControllerBase
     {

@@ -3,7 +3,7 @@
     public record TicketDto
     {
         public Guid Id { get; set; }
-        public DateTime PurchaseDate { get; set; }
+        public DateTimeOffset PurchaseDate { get; set; }
         public string Status { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public Guid ScreeningId { get; set; }

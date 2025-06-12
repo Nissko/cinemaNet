@@ -121,7 +121,7 @@ namespace Cinema.Infrastructure.Persistence.Providers.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("StartTime")
+                    b.Property<DateTimeOffset>("StartTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -169,7 +169,7 @@ namespace Cinema.Infrastructure.Persistence.Providers.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("PurchaseDate")
+                    b.Property<DateTimeOffset>("PurchaseDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("ScreeningId")

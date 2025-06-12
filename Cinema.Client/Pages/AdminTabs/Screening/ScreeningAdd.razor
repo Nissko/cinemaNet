@@ -88,8 +88,8 @@
     private MovieDTO[]? _movieDto;
 
     private string _errorMessage = string.Empty;
-    private DateOnly _dateInput = DateOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc));
-    private TimeOnly _timeInput = TimeOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc));
+    private DateOnly _dateInput = DateOnly.FromDateTime(DateTime.Parse(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).ToString()));
+    private TimeOnly _timeInput = TimeOnly.FromDateTime(DateTime.Parse(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).ToString()));
     
     protected override async Task OnInitializedAsync()
     {

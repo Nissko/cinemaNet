@@ -82,8 +82,8 @@ namespace Cinema.API.Controllers.Cinema
                 return BadRequest("Файл не выбран");
 
             //TODO: указание Dev/Host
-            //var uploadsFolder = Path.Combine("/root/riderDeploy/wwwroot", "images", "movies");
-            var uploadsFolder = Path.Combine("C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies", "images", "movies");
+            var uploadsFolder = Path.Combine("/root/riderDeploy/wwwroot", "images", "movies");
+            //var uploadsFolder = Path.Combine("C:\\GitHubRepositories\\cinemaNet\\Cinema.Client\\wwwroot\\images_movies", "images", "movies");
             Directory.CreateDirectory(uploadsFolder); // Создаем папку, если её нет
 
             var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";

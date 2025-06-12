@@ -66,24 +66,59 @@ namespace Cinema.API.Controllers.Cinema
         /// Покупка
         /// </summary>
         [HttpPost("purchase")]
-        public async Task<ActionResult<TicketDto>> PurchaseTicket([FromBody] PurchaseTicketDto dto)
+        public async Task<ActionResult<bool>> PurchaseTicket([FromBody] PurchaseTicketDto dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            //var ticket = await _ticketRepository.PurchaseTicketAsync(dto);
+            
+            var ticket = await _ticketRepository.PurchaseTicketAsync(dto);
 
-            await _mailServiceClientCore.SendEmailAsync(new MailServiceDto()
+            await _mailServiceClientCore.SendEmailAsync(new MailServiceDto
             {
-                To = ["skibko.nik@mail.ru"],
+                To = [dto.ToUserEmail],
                 Bcc = ["nikita.skibko@yandex.ru"],
                 Cc = ["nikita.skibko@yandex.ru"],
                 From = "nikita.skibko@yandex.ru",
                 DisplayName = "AIB-CINEMA",
                 Subject = "Чек об оплате AIB-CINEMA ",
-                Body = "Вы успешно оплатили",
+                Body = @"
+                <table width=""100%"" cellspacing=""0"" cellpadding=""0"" border=""0"">
+                    <tr>
+                        <td align=""center"">
+                            <table style=""max-width: 640px; min-width: 320px; background-color: #ffffff;"" width=""100%"" cellspacing=""0"" cellpadding=""0"" border=""0"">
+                                <tr>
+                                    <td height=""50"">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align=""center"">
+                                        <h2 style=""color: #2E8B57; font-family: Arial, sans-serif; font-size: 24px;"">Билет успешно приобретен!</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align=""center"">
+                                        <p style=""font-family: Arial, sans-serif; font-size: 16px; color: #000000;"">
+                                            Спасибо за покупку! Мы рады, что вы выбрали именно нас.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align=""center"">
+                                        <p style=""font-family: Arial, sans-serif; font-size: 16px; color: #000000;"">
+                                            Приятного просмотра! Ждем вас снова в AIB-CINEMA!
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height=""50"">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>"
             });
-            
-            //return CreatedAtAction(nameof(GetById), new { id = ticket.Id }, ticket);
-            return Ok();
+
+            return ticket
+                ? StatusCode(StatusCodes.Status200OK, "Билеты оплачены.")
+                : StatusCode(StatusCodes.Status500InternalServerError, "Произошла ошибка при оплате.");
         }
 
         [HttpDelete("{id:guid}")]

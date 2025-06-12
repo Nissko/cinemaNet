@@ -8,8 +8,8 @@ namespace Cinema.Infrastructure.Services.Services
     {
         private readonly HttpClient _httpClient;
         //TODO: указание Dev/Host
-        //private static string _url = "https://aib-cinema.ru/mail/send-mail";
-        private static string _url = "http://localhost:5030/send-mail";
+        private static string _url = "https://aib-cinema.ru/mailservice/send-mail";
+        //private static string _url = "http://localhost:5030/send-mail";
 
         public MailServiceClientCore(HttpClient httpClient)
         {

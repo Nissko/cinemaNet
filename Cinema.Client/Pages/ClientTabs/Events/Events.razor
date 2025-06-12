@@ -14,23 +14,23 @@
 <div class="h4 fw-bold mb-3">Показы:</div>
 <div class="d-flex flex-wrap gap-2 mb-4">
     <button class="btn btn-outline-primary rounded-pill px-3"
-            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date)">
+            @onclick="() => LoadScreeningsForDay(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).Date)">
         Сегодня
     </button>
     <button class="btn btn-outline-primary rounded-pill px-3"
-            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(1))">
+            @onclick="() => LoadScreeningsForDay(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).Date.AddDays(1))">
         Завтра
     </button>
     <button class="btn btn-outline-primary rounded-pill px-3"
-            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(2))">
+            @onclick="() => LoadScreeningsForDay(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).Date.AddDays(2))">
         @GetDayName(2)
     </button>
     <button class="btn btn-outline-primary rounded-pill px-3"
-            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(3))">
+            @onclick="() => LoadScreeningsForDay(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).Date.AddDays(3))">
         @GetDayName(3)
     </button>
     <button class="btn btn-outline-primary rounded-pill px-3"
-            @onclick="() => LoadScreeningsForDay(DateTime.Now.Date.AddDays(4))">
+            @onclick="() => LoadScreeningsForDay(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).Date.AddDays(4))">
         @GetDayName(4)
     </button>
 </div>
@@ -70,8 +70,8 @@
                                 <div class="d-flex flex-wrap gap-1">
                                     @foreach (var screening in group)
                                     {
-                                        if (screening.StartTime.TimeOfDay < DateTime.Now.TimeOfDay &&
-                                            screening.StartTime.Date == DateTime.Now.Date)
+                                        if (screening.StartTime.TimeOfDay < DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).TimeOfDay &&
+                                            screening.StartTime.Date == DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).Date)
                                         {
                                             <button
                                                 class="btn btn-secondary btn-sm disabled">@screening.StartTime.ToString("HH:mm")</button>
@@ -213,11 +213,11 @@ else
     {
         _isAuth = await AuthService.IsUserAuthenticated();
 
-        await LoadScreeningsForDay(DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc));
+        await LoadScreeningsForDay(DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)));
         await ConnectToHub();
     }
 
-    private async Task LoadScreeningsForDay(DateTime day)
+    private async Task LoadScreeningsForDay(DateTimeOffset day)
     {
         _allScreenings = await Http.GetFromJsonAsync<ScreeningDTO[]>($"Screening/by-day/{day}");
         var today = day.Date;
@@ -240,7 +240,7 @@ else
     private string GetDayName(int daysFromToday)
     {
         var culture = new CultureInfo("ru-RU");
-        var dayName = DateTime.Now.AddDays(daysFromToday).ToString("dddd", culture);
+        var dayName = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(5)).AddDays(daysFromToday).ToString("dddd", culture);
         return culture.TextInfo.ToTitleCase(dayName);
     }
 
@@ -366,8 +366,8 @@ else
     {
         //TODO: указание Dev/Host
         _hubConnection = new HubConnectionBuilder()
-            //.WithUrl(NavigationManager.ToAbsoluteUri("https://aib-cinema.ru/api/hub/eventsMainHub"))
-            .WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/hub/eventsMainHub"))
+            .WithUrl(NavigationManager.ToAbsoluteUri("https://aib-cinema.ru/api/hub/eventsMainHub"))
+            //.WithUrl(NavigationManager.ToAbsoluteUri("http://localhost:5294/hub/eventsMainHub"))
             .Build();
 
         _hubConnection.On<Guid>("ReceiveSeatsUpdate", async id =>

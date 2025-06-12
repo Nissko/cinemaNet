@@ -8,14 +8,14 @@ namespace Cinema.Domain.Aggregates.Cinemas
     /// </summary>
     public class TicketEntity : Entity
     {
-        public TicketEntity(DateTime purchaseDate, TicketStatus status, decimal price)
+        public TicketEntity(DateTimeOffset purchaseDate, TicketStatus status, decimal price)
         {
             PurchaseDate = purchaseDate;
             Status = status;
             Price = price;
         }
 
-        public TicketEntity(DateTime purchaseDate, TicketStatus status, decimal price, Guid screeningId, Guid seatId,
+        public TicketEntity(DateTimeOffset purchaseDate, TicketStatus status, decimal price, Guid screeningId, Guid seatId,
             Guid userId)
         {
             PurchaseDate = purchaseDate;
@@ -26,7 +26,7 @@ namespace Cinema.Domain.Aggregates.Cinemas
             UserId = userId;
         }
 
-        public DateTime PurchaseDate { get; private set; }
+        public DateTimeOffset PurchaseDate { get; private set; }
         public TicketStatus Status { get; private set; }
         public decimal Price { get; private set; }
 

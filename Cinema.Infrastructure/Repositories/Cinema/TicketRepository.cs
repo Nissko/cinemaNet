@@ -132,26 +132,25 @@ namespace Cinema.Infrastructure.Repositories.Cinema
             return [ticket.Id];
         }
 
-        public async Task<TicketDto> PurchaseTicketAsync(PurchaseTicketDto dto)
+        public async Task<bool> PurchaseTicketAsync(PurchaseTicketDto dto)
         {
-            var ticket = await _context.Ticket.FirstOrDefaultAsync(t => t.Id == dto.TicketId);
-            if (ticket == null) throw new ArgumentException("Билет не найден");
-
-            ticket.UpdateStatus(TicketStatus.Purchased);
-
-            _context.Ticket.Update(ticket);
-            await _context.SaveChangesAsync(CancellationToken.None);
-
-            return new TicketDto
+            if (dto.TicketId != null)
             {
-                Id = ticket.Id,
-                PurchaseDate = ticket.PurchaseDate.ToUniversalTime(),
-                Status = ticket.Status.ToString(),
-                Price = ticket.Price,
-                ScreeningId = ticket.ScreeningId,
-                SeatId = ticket.SeatId,
-                UserId = ticket.UserId
-            };
+                foreach (var tk in dto.TicketId)
+                {
+                    var ticket = await _context.Ticket.FirstOrDefaultAsync(t => t.Id == tk);
+                    if (ticket == null) throw new ArgumentException("Билет не найден");
+
+                    ticket.UpdateStatus(TicketStatus.Purchased);
+
+                    _context.Ticket.Update(ticket);
+                    await _context.SaveChangesAsync(CancellationToken.None);
+                }
+                
+                return true;
+            }
+            
+            return false;
         }
 
         public async Task<bool> CancelTicketAsync(Guid id)

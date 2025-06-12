@@ -22,7 +22,7 @@ namespace Cinema.API.Controllers.Cinema
         }
     
         [HttpGet("by-day/{date:datetime}")]
-        public async Task<ActionResult<IEnumerable<ScreeningDto>>> GetByDayAll(DateTime date)
+        public async Task<ActionResult<IEnumerable<ScreeningDto>>> GetByDayAll(DateTimeOffset date)
         {
             return Ok(await _screeningRepository.GetByDayAsync(date));
         }
